@@ -11,3 +11,5 @@ export { Navigation } from './Navigation/Navigation';
 export { CustomCursorProvider, useCursor } from './CustomCursor/CustomCursor';
 export { ProjectMeta } from './ProjectMeta/ProjectMeta';
 export { ProjectMedia } from './ProjectMedia/ProjectMedia';
+export { HeroSection } from './HeroSection/HeroSection';
+export { TransitionBridge } from './TransitionBridge/TransitionBridge';

@@ -6,10 +6,10 @@ import { usePathname } from 'next/navigation';
 import styles from './Navigation.module.css';
 
 const NAV_LINKS = [
-  { href: '/work', label: 'Work' },
-  { href: '/lab', label: 'Lab' },
-  { href: '/thoughts', label: 'Thoughts' },
-  { href: '/about', label: 'About' },
+  { href: '/#work', label: 'Work', index: '01' },
+  { href: '/lab', label: 'Lab', index: '02' },
+  { href: '/thoughts', label: 'Thoughts', index: '03' },
+  { href: '/#about', label: 'About', index: '04' },
 ] as const;
 
 export function Navigation() {
@@ -45,8 +45,22 @@ export function Navigation() {
   }, [pathname]);
 
   const isActive = (href: string) => {
+    if (href.startsWith('/#')) return pathname === '/';
     if (href === '/') return pathname === '/';
     return pathname.startsWith(href);
+  };
+
+  /* ── Handle anchor link clicks (smooth scroll on same page) ── */
+  const handleLinkClick = (href: string) => {
+    setMobileOpen(false);
+
+    if (href.startsWith('/#') && pathname === '/') {
+      const id = href.replace('/#', '');
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
   };
 
   return (
@@ -68,6 +82,7 @@ export function Navigation() {
               key={href}
               href={href}
               className={`${styles.link} ${isActive(href) ? styles.linkActive : ''}`}
+              onClick={() => handleLinkClick(href)}
             >
               {label}
             </Link>
@@ -75,20 +90,23 @@ export function Navigation() {
         </div>
 
         {/* Right — Contact (desktop) */}
-        <Link href="/about" className={styles.contact}>
+        <Link
+          href="/#about"
+          className={styles.contact}
+          onClick={() => handleLinkClick('/#about')}
+        >
           Contact <span className={styles.contactArrow}>↗</span>
         </Link>
 
-        {/* Mobile toggle */}
+        {/* Mobile toggle — editorial "MENU +" */}
         <button
           className={styles.menuToggle}
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={mobileOpen}
         >
-          <span />
-          <span />
-          <span />
+          Menu
+          <span className={styles.menuToggleIcon}>+</span>
         </button>
       </nav>
 
@@ -97,12 +115,23 @@ export function Navigation() {
         className={`${styles.mobileMenu} ${mobileOpen ? styles.mobileMenuOpen : ''}`}
         aria-hidden={!mobileOpen}
       >
-        {NAV_LINKS.map(({ href, label }) => (
-          <Link key={href} href={href} className={styles.mobileLink}>
+        {NAV_LINKS.map(({ href, label, index }) => (
+          <Link
+            key={href}
+            href={href}
+            className={styles.mobileLink}
+            onClick={() => handleLinkClick(href)}
+          >
+            <span className={styles.mobileLinkIndex}>{index}</span>
             {label}
           </Link>
         ))}
-        <Link href="/about" className={styles.mobileContact}>
+        <div className={styles.mobileDivider} />
+        <Link
+          href="/#about"
+          className={styles.mobileContact}
+          onClick={() => handleLinkClick('/#about')}
+        >
           Contact <span className={styles.contactArrow}>↗</span>
         </Link>
       </div>

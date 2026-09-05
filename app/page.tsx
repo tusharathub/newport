@@ -6,6 +6,8 @@ import {
   MotionWrapper,
   Button,
 } from '@/components';
+import { HeroSection } from '@/components/HeroSection/HeroSection';
+import { TransitionBridge } from '@/components/TransitionBridge/TransitionBridge';
 import { projects } from '@/data/projects';
 import styles from './page.module.css';
 
@@ -13,46 +15,13 @@ export default function Home() {
   return (
     <>
       {/* ── Hero ── */}
-      <Section variant="hero">
-        <PageContainer>
-          <div className={styles.hero}>
-            <MotionWrapper variant="fadeIn">
-              <SectionLabel>Portfolio — 2024</SectionLabel>
-            </MotionWrapper>
+      <HeroSection />
 
-            <MotionWrapper variant="fadeUp" delay={1}>
-              <DisplayHeading as="h1" size="hero" edgeBleed>
-                TUSHAR
-                <br />
-                NAILWAL
-              </DisplayHeading>
-            </MotionWrapper>
+      {/* ── Transition: Hero → Work ── */}
+      <TransitionBridge />
 
-            <MotionWrapper variant="fadeUp" delay={2}>
-              <p className={styles.heroSub}>
-                AI + Full-Stack Engineer.
-                <br />
-                I build things.
-              </p>
-            </MotionWrapper>
-
-            <MotionWrapper variant="fadeUp" delay={3}>
-              <div className={styles.heroMeta}>
-                <span className={styles.heroMetaItem}>AI Applications</span>
-                <span className={styles.heroMetaDivider}>/</span>
-                <span className={styles.heroMetaItem}>Full-Stack</span>
-                <span className={styles.heroMetaDivider}>/</span>
-                <span className={styles.heroMetaItem}>Mobile</span>
-                <span className={styles.heroMetaDivider}>/</span>
-                <span className={styles.heroMetaItem}>Automation</span>
-              </div>
-            </MotionWrapper>
-          </div>
-        </PageContainer>
-      </Section>
-
-      {/* ── Selected Work (Preview) ── */}
-      <Section bordered>
+      {/* ── Selected Work ── */}
+      <Section bordered id="work">
         <PageContainer>
           <MotionWrapper>
             <SectionLabel>Selected Work</SectionLabel>
@@ -89,7 +58,7 @@ export default function Home() {
       </Section>
 
       {/* ── Brief About ── */}
-      <Section bordered>
+      <Section bordered id="about">
         <PageContainer variant="narrow">
           <MotionWrapper>
             <SectionLabel>About</SectionLabel>
