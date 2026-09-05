@@ -44,6 +44,12 @@ export interface Project {
   /** Whether a full case study exists */
   caseStudy?: boolean;
 
+  /** Optional layout style variant for editorial presentation */
+  layoutVariant?: 'default' | 'reversed' | 'full' | 'offset';
+
+  /** Optional aspect ratio constraint for media placeholder */
+  aspectRatio?: '16/9' | '4/5' | '21/9' | '16/10';
+
   /** Problem statement for case study */
   problem?: string;
 
