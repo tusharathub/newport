@@ -6,7 +6,9 @@ import {
 import { HeroSection } from '@/components/HeroSection/HeroSection';
 import { TransitionBridge } from '@/components/TransitionBridge/TransitionBridge';
 import { WorkSection } from '@/components/WorkSection/WorkSection';
+import { LabSection } from '@/components/Lab/LabSection';
 import { projects } from '@/data/projects';
+import { labItems } from '@/data/lab';
 import styles from './page.module.css';
 
 export default function Home() {
@@ -20,6 +22,9 @@ export default function Home() {
 
       {/* ── Selected Work ── */}
       <WorkSection projects={projects} />
+
+      {/* ── The Lab / Experiments ── */}
+      <LabSection items={labItems} />
 
       {/* ── About ── */}
       <Section id="about">

@@ -19,3 +19,6 @@ export { CaseStudyMeta } from './CaseStudy/CaseStudyMeta';
 export { CaseStudyDiagram } from './CaseStudy/CaseStudyDiagram';
 export { CaseStudySection } from './CaseStudy/CaseStudySection';
 export { CaseStudyNavigation } from './CaseStudy/CaseStudyNavigation';
+export { LabItemCard } from './Lab/LabItemCard';
+export { LabSection } from './Lab/LabSection';
+export { LabDetailView } from './Lab/LabDetailView';
