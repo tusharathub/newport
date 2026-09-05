@@ -3,6 +3,8 @@ import { Inter } from 'next/font/google';
 import { Navigation } from '@/components/Navigation/Navigation';
 import { GrainOverlay } from '@/components/GrainOverlay/GrainOverlay';
 import { CustomCursorProvider } from '@/components/CustomCursor/CustomCursor';
+import { Footer } from '@/components/Footer/Footer';
+import { personalData } from '@/data/personal';
 import './globals.css';
 
 const inter = Inter({
@@ -12,34 +14,35 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: {
-    default: 'Tushar Nailwal — AI + Full-Stack Engineer',
-    template: '%s — Tushar Nailwal',
-  },
-  description:
-    'Portfolio of Tushar Nailwal. AI applications, full-stack engineering, mobile development, and automation.',
+  title: `${personalData.name} — ${personalData.title}`,
+  description: personalData.shortBio,
   openGraph: {
-    title: 'Tushar Nailwal — AI + Full-Stack Engineer',
-    description:
-      'Portfolio of Tushar Nailwal. AI applications, full-stack engineering, mobile development, and automation.',
+    title: `${personalData.name} — ${personalData.title}`,
+    description: personalData.shortBio,
     type: 'website',
-    locale: 'en_US',
-    siteName: 'Tushar Nailwal',
-  },
-  robots: {
-    index: true,
-    follow: true,
   },
 };
 
-export default function RootLayout({ children }: LayoutProps<'/'>) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <html lang="en" className={inter.variable}>
       <body>
         <CustomCursorProvider>
-          <Navigation />
-          <main id="main-content">{children}</main>
+          {/* Film grain texture */}
           <GrainOverlay />
+
+          {/* Top Navigation */}
+          <Navigation />
+
+          {/* Main content */}
+          <div className="relative z-10">{children}</div>
+
+          {/* Footer */}
+          <Footer />
         </CustomCursorProvider>
       </body>
     </html>

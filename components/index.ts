@@ -25,3 +25,6 @@ export { LabDetailView } from './Lab/LabDetailView';
 export { ArticleRow } from './Thoughts/ArticleRow';
 export { ThoughtsSection } from './Thoughts/ThoughtsSection';
 export { ArticleReader } from './Thoughts/ArticleReader';
+export { AboutSection } from './AboutSection/AboutSection';
+export { ContactSection } from './ContactSection/ContactSection';
+export { Footer } from './Footer/Footer';
