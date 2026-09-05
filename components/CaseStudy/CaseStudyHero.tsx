@@ -10,7 +10,7 @@ export function CaseStudyHero({ project }: CaseStudyHeroProps) {
     <header className="relative w-full pt-[clamp(6rem,10vw,8rem)] pb-12 flex flex-col gap-8">
       {/* Top Tag & ID */}
       <div className="flex justify-between items-center font-mono text-xs text-[#555754] tracking-widest uppercase">
-        <span>{project.id} // CASE STUDY</span>
+        <span>{project.id} — CASE STUDY</span>
         <span className="px-2 py-0.5 border border-[#e2e1da]/10 rounded-sm text-[#8a8a84]">
           {project.category}
         </span>

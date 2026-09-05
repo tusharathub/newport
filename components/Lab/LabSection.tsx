@@ -15,7 +15,7 @@ export function LabSection({ items }: LabSectionProps) {
     >
       <div className="flex flex-col gap-2 mb-12">
         <span className="font-mono text-[0.625rem] font-medium text-[#555754] tracking-widest uppercase">
-          THE LAB // EXPERIMENTS
+          THE LAB — EXPERIMENTS
         </span>
         <h2 className="text-3xl md:text-5xl font-bold text-[#e2e1da] tracking-tight">
           THINGS I&apos;M EXPLORING.

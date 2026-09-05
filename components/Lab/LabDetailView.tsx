@@ -13,7 +13,7 @@ export function LabDetailView({ item }: LabDetailViewProps) {
       {/* Header */}
       <header className="flex flex-col gap-4 border-b border-[#e2e1da]/10 pb-8">
         <div className="flex items-center gap-3 font-mono text-xs text-[#555754]">
-          <span>{item.id} // LAB EXPERIMENT</span>
+          <span>{item.id} — LAB EXPERIMENT</span>
           <span>—</span>
           <span className="text-[10px] text-[#8a8a84] px-2 py-0.5 border border-[#e2e1da]/10 rounded-sm uppercase tracking-wider">
             {item.status}

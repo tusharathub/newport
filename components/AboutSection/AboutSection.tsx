@@ -10,7 +10,7 @@ export function AboutSection() {
       {/* Intro Header */}
       <div className="flex flex-col gap-2 mb-12">
         <span className="font-mono text-[0.625rem] font-medium text-[#555754] tracking-widest uppercase">
-          02 // ABOUT
+          02 — ABOUT
         </span>
         <h2 className="text-3xl md:text-5xl font-bold text-[#e2e1da] tracking-tight max-w-4xl leading-tight">
           I LIKE TURNING IDEAS INTO THINGS THAT WORK.

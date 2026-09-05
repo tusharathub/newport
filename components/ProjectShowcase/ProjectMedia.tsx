@@ -36,7 +36,7 @@ export function ProjectMedia({ project, priority = false }: ProjectMediaProps) {
       >
         {/* Placeholder Header */}
         <div className="flex justify-between items-center font-mono text-[0.625rem] text-[#555754] tracking-wider uppercase">
-          <span>{project.id} // SYSTEM VISUAL</span>
+          <span>{project.id} — SYSTEM VISUAL</span>
           <span className="px-1.5 py-0.5 border border-white/10 rounded-sm">
             {project.category}
           </span>
@@ -119,7 +119,7 @@ export function ProjectMedia({ project, priority = false }: ProjectMediaProps) {
             <div className="flex gap-3">
               <span className="text-[#555754]">EXPORT</span>
               <span className="text-[#e2e1da]">
-                Structured JSON // 1,420 records
+                Structured JSON — 1,420 records
               </span>
             </div>
           </div>
@@ -138,7 +138,7 @@ export function ProjectMedia({ project, priority = false }: ProjectMediaProps) {
 
         {/* Placeholder Footer */}
         <div className="flex justify-between items-end font-mono text-[10px] text-[#252725] tracking-wider">
-          <span>PROJECT REPOSITORY // DATA DRIVEN</span>
+          <span>PROJECT REPOSITORY — DATA DRIVEN</span>
           <span>{project.year || '2024'}</span>
         </div>
       </div>
