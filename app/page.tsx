@@ -7,11 +7,15 @@ import { HeroSection } from '@/components/HeroSection/HeroSection';
 import { TransitionBridge } from '@/components/TransitionBridge/TransitionBridge';
 import { WorkSection } from '@/components/WorkSection/WorkSection';
 import { LabSection } from '@/components/Lab/LabSection';
+import { ThoughtsSection } from '@/components/Thoughts/ThoughtsSection';
 import { projects } from '@/data/projects';
 import { labItems } from '@/data/lab';
+import { getPublishedArticles } from '@/data/thoughts';
 import styles from './page.module.css';
 
 export default function Home() {
+  const publishedArticles = getPublishedArticles();
+
   return (
     <>
       {/* ── Hero ── */}
@@ -25,6 +29,9 @@ export default function Home() {
 
       {/* ── The Lab / Experiments ── */}
       <LabSection items={labItems} />
+
+      {/* ── Thoughts / Articles ── */}
+      <ThoughtsSection articles={publishedArticles} />
 
       {/* ── About ── */}
       <Section id="about">
