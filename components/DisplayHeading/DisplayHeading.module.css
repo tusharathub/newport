@@ -1,0 +1,44 @@
+.heading {
+  font-weight: 600;
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tighter);
+  color: var(--color-off-white);
+}
+
+/* Size variants */
+.sm {
+  font-size: clamp(var(--text-3xl), 5vw, var(--text-4xl));
+}
+
+.md {
+  font-size: clamp(var(--text-4xl), 8vw, var(--text-5xl));
+  letter-spacing: var(--tracking-tightest);
+}
+
+.lg {
+  font-size: clamp(var(--text-5xl), 12vw, var(--text-6xl));
+  letter-spacing: var(--tracking-tightest);
+}
+
+.hero {
+  font-size: var(--text-hero);
+  letter-spacing: var(--tracking-tightest);
+  line-height: 0.9;
+}
+
+/* Optional edge behavior — text extends toward viewport edges */
+.edgeBleed {
+  margin-left: calc(var(--grid-margin) * -0.5);
+  margin-right: calc(var(--grid-margin) * -0.5);
+}
+
+@media (max-width: 768px) {
+  .hero {
+    line-height: 0.95;
+  }
+
+  .edgeBleed {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}

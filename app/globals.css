@@ -1,26 +1,330 @@
-@import "tailwindcss";
+/* ============================================================
+   DESIGN SYSTEM — TUSHAR NAILWAL PORTFOLIO
+   ============================================================
+   Monochromatic, dark, cinematic, editorial.
+   Typography-driven. Restrained. Premium.
+   ============================================================ */
+
+/* -----------------------------------------------------------
+   1. CSS CUSTOM PROPERTIES (DESIGN TOKENS)
+   ----------------------------------------------------------- */
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* ── Colors ── */
+  --color-black: #080909;
+  --color-near-black: #101111;
+  --color-charcoal: #171918;
+  --color-dark-gray: #252725;
+  --color-muted-gray: #555754;
+  --color-warm-gray: #8a8a84;
+  --color-light-gray: #b8b8b2;
+  --color-off-white: #e2e1da;
+
+  --color-border: rgba(226, 225, 218, 0.1);
+  --color-border-hover: rgba(226, 225, 218, 0.18);
+  --color-border-active: rgba(226, 225, 218, 0.25);
+
+  /* ── Typography ── */
+  --font-primary: var(--font-inter), 'Inter', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', sans-serif;
+  --font-mono: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+
+  /* Size scale */
+  --text-2xs: 0.625rem; /*  10px */
+  --text-xs: 0.6875rem; /*  11px */
+  --text-sm: 0.75rem; /*  12px */
+  --text-base: 1rem; /*  16px */
+  --text-lg: 1.125rem; /*  18px */
+  --text-xl: 1.25rem; /*  20px */
+  --text-2xl: 1.5rem; /*  24px */
+  --text-3xl: 2rem; /*  32px */
+  --text-4xl: 3rem; /*  48px */
+  --text-5xl: 5rem; /*  80px */
+  --text-6xl: 8rem; /* 128px */
+  --text-hero: clamp(4rem, 16vw, 13rem);
+
+  /* Line heights */
+  --leading-none: 1;
+  --leading-tight: 1.1;
+  --leading-snug: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.65;
+
+  /* Letter spacing */
+  --tracking-tightest: -0.06em;
+  --tracking-tighter: -0.04em;
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.05em;
+  --tracking-wider: 0.1em;
+  --tracking-widest: 0.15em;
+
+  /* ── Spacing ── */
+  --space-2xs: 0.25rem; /*   4px */
+  --space-xs: 0.5rem; /*   8px */
+  --space-sm: 0.75rem; /*  12px */
+  --space-md: 1rem; /*  16px */
+  --space-lg: 1.5rem; /*  24px */
+  --space-xl: 2rem; /*  32px */
+  --space-2xl: 3rem; /*  48px */
+  --space-3xl: 4rem; /*  64px */
+  --space-4xl: 6rem; /*  96px */
+  --space-5xl: 8rem; /* 128px */
+  --space-6xl: 12rem; /* 192px */
+
+  /* ── Grid ── */
+  --grid-gap: clamp(1rem, 2vw, 2rem);
+  --grid-margin: clamp(1.25rem, 5vw, 4rem);
+  --grid-max: 1440px;
+
+  /* ── Motion ── */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-in-out-cubic: cubic-bezier(0.33, 0, 0.67, 1);
+
+  --duration-instant: 100ms;
+  --duration-fast: 150ms;
+  --duration-base: 300ms;
+  --duration-slow: 600ms;
+  --duration-slower: 1000ms;
+  --duration-slowest: 1500ms;
+
+  /* ── Z-index ── */
+  --z-base: 0;
+  --z-above: 10;
+  --z-nav: 100;
+  --z-overlay: 200;
+  --z-cursor: 9999;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* -----------------------------------------------------------
+   2. CSS RESET & BASE
+   ----------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  hanging-punctuation: first last;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-primary);
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--color-off-white);
+  background-color: var(--color-black);
+  overflow-x: hidden;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/* ── Links ── */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ── Images ── */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* ── Typography ── */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+  text-wrap: balance;
+}
+
+p {
+  overflow-wrap: break-word;
+  text-wrap: pretty;
+}
+
+/* ── Lists ── */
+ul,
+ol {
+  list-style: none;
+}
+
+/* ── Buttons ── */
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* ── Inputs ── */
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+/* -----------------------------------------------------------
+   3. SELECTION STYLES
+   ----------------------------------------------------------- */
+
+::selection {
+  background-color: var(--color-off-white);
+  color: var(--color-black);
+}
+
+::-moz-selection {
+  background-color: var(--color-off-white);
+  color: var(--color-black);
+}
+
+/* -----------------------------------------------------------
+   4. SCROLLBAR
+   ----------------------------------------------------------- */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-dark-gray);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-muted-gray);
+}
+
+/* Firefox */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-dark-gray) var(--color-black);
+}
+
+/* -----------------------------------------------------------
+   5. FOCUS STYLES (ACCESSIBILITY)
+   ----------------------------------------------------------- */
+
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 1px solid var(--color-off-white);
+  outline-offset: 3px;
+}
+
+/* -----------------------------------------------------------
+   6. REDUCED MOTION
+   ----------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* -----------------------------------------------------------
+   7. GRAIN / TEXTURE OVERLAY (CSS-only, performant)
+   ----------------------------------------------------------- */
+
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-overlay);
+  pointer-events: none;
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+}
+
+.grain-overlay::before {
+  content: '';
+  position: absolute;
+  inset: -200%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+  will-change: transform;
+  animation: grain 8s steps(10) infinite;
+}
+
+@keyframes grain {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-5%, -10%);
+  }
+  20% {
+    transform: translate(-15%, 5%);
+  }
+  30% {
+    transform: translate(7%, -25%);
+  }
+  40% {
+    transform: translate(-5%, 25%);
+  }
+  50% {
+    transform: translate(-15%, 10%);
+  }
+  60% {
+    transform: translate(15%, 0%);
+  }
+  70% {
+    transform: translate(0%, 15%);
+  }
+  80% {
+    transform: translate(3%, 35%);
+  }
+  90% {
+    transform: translate(-10%, 10%);
+  }
+}
+
+/* -----------------------------------------------------------
+   8. UTILITY CLASSES
+   ----------------------------------------------------------- */
+
+/* Visually hidden but accessible to screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }

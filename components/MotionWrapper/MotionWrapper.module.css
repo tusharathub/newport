@@ -1,0 +1,66 @@
+.wrapper {
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.visible {
+  opacity: 1;
+}
+
+/* ── Fade Up ── */
+.fadeUp {
+  transform: translateY(40px);
+  transition:
+    opacity var(--duration-slower) var(--ease-out-expo),
+    transform var(--duration-slower) var(--ease-out-expo);
+}
+
+.fadeUp.visible {
+  transform: translateY(0);
+}
+
+/* ── Fade In ── */
+.fadeIn {
+  transition: opacity var(--duration-slower) var(--ease-out-expo);
+}
+
+/* ── Clip Reveal (bottom to top) ── */
+.clipReveal {
+  clip-path: inset(100% 0 0 0);
+  transition: clip-path var(--duration-slowest) var(--ease-out-expo);
+}
+
+.clipReveal.visible {
+  clip-path: inset(0 0 0 0);
+  opacity: 1;
+}
+
+/* ── Stagger delays ── */
+.delay1 {
+  transition-delay: 100ms;
+}
+
+.delay2 {
+  transition-delay: 200ms;
+}
+
+.delay3 {
+  transition-delay: 300ms;
+}
+
+.delay4 {
+  transition-delay: 400ms;
+}
+
+.delay5 {
+  transition-delay: 500ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wrapper {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+    transition: none !important;
+  }
+}

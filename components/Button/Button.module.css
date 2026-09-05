@@ -1,0 +1,57 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  line-height: var(--leading-none);
+  padding: var(--space-sm) var(--space-lg);
+  border: 1px solid var(--color-border);
+  border-radius: 2px;
+  color: var(--color-off-white);
+  background: transparent;
+  cursor: pointer;
+  transition:
+    background-color var(--duration-base) var(--ease-out-expo),
+    border-color var(--duration-base) var(--ease-out-expo),
+    transform var(--duration-base) var(--ease-out-expo),
+    opacity var(--duration-base) var(--ease-out-expo);
+  position: relative;
+  overflow: hidden;
+}
+
+.button:hover {
+  border-color: var(--color-border-hover);
+  background-color: rgba(226, 225, 218, 0.03);
+  transform: translateY(-1px);
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+/* Ghost variant — no border */
+.ghost {
+  border-color: transparent;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.ghost:hover {
+  border-color: transparent;
+  background: transparent;
+  opacity: 0.7;
+}
+
+/* Arrow icon */
+.arrow {
+  display: inline-block;
+  transition: transform var(--duration-base) var(--ease-out-expo);
+  font-size: 0.85em;
+}
+
+.button:hover .arrow {
+  transform: translate(2px, -2px);
+}
