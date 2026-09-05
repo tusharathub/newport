@@ -14,3 +14,8 @@ export { TransitionBridge } from './TransitionBridge/TransitionBridge';
 export { ProjectMedia } from './ProjectShowcase/ProjectMedia';
 export { ProjectCard } from './ProjectShowcase/ProjectCard';
 export { WorkSection } from './WorkSection/WorkSection';
+export { CaseStudyHero } from './CaseStudy/CaseStudyHero';
+export { CaseStudyMeta } from './CaseStudy/CaseStudyMeta';
+export { CaseStudyDiagram } from './CaseStudy/CaseStudyDiagram';
+export { CaseStudySection } from './CaseStudy/CaseStudySection';
+export { CaseStudyNavigation } from './CaseStudy/CaseStudyNavigation';

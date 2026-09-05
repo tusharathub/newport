@@ -1,3 +1,26 @@
+export interface ArchitectureNode {
+  label: string;
+  sublabel?: string;
+}
+
+export interface CaseStudyData {
+  overview?: string;
+  problem?: string;
+  approach?: string;
+  build?: string;
+  architectureNodes?: ArchitectureNode[];
+  codeSnippet?: {
+    language: string;
+    title: string;
+    code: string;
+  };
+  challenges?: string[];
+  solution?: string;
+  result?: string;
+  learnings?: string[];
+  nextSteps?: string;
+}
+
 export interface Project {
   /** Unique identifier */
   id: string;
@@ -50,20 +73,8 @@ export interface Project {
   /** Optional aspect ratio constraint for media placeholder */
   aspectRatio?: '16/9' | '4/5' | '21/9' | '16/10';
 
-  /** Problem statement for case study */
-  problem?: string;
-
-  /** Approach / methodology for case study */
-  approach?: string;
-
-  /** Build process notes for case study */
-  build?: string;
-
-  /** Result / outcome for case study */
-  result?: string;
-
-  /** Key learnings for case study */
-  learnings?: string;
+  /** Structured case study content */
+  caseStudyData?: CaseStudyData;
 }
 
 export type ProjectCategory =
