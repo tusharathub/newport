@@ -1,5 +1,4 @@
 import { ReactNode } from 'react';
-import styles from './Section.module.css';
 
 interface SectionProps {
   children: ReactNode;
@@ -16,17 +15,23 @@ export function Section({
   id,
   className = '',
 }: SectionProps) {
-  const classes = [
-    styles.section,
-    variant !== 'default' ? styles[variant] : '',
-    bordered ? styles.bordered : '',
-    className,
-  ]
-    .filter(Boolean)
-    .join(' ');
+  let paddingClass = 'py-[clamp(4rem,8vw,8rem)]';
+
+  if (variant === 'compact') {
+    paddingClass = 'py-[clamp(2rem,4vw,4rem)]';
+  } else if (variant === 'expanded') {
+    paddingClass = 'py-[clamp(6rem,12vw,12rem)]';
+  } else if (variant === 'hero') {
+    paddingClass = 'pt-[clamp(6rem,12vw,10rem)] pb-[clamp(3rem,6vw,6rem)]';
+  }
+
+  const borderClass = bordered ? 'border-t border-[rgba(226,225,218,0.1)]' : '';
 
   return (
-    <section id={id} className={classes}>
+    <section
+      id={id}
+      className={`relative w-full px-[clamp(1.25rem,5vw,4rem)] ${paddingClass} ${borderClass} ${className}`}
+    >
       {children}
     </section>
   );

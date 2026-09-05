@@ -1,5 +1,4 @@
 import { ReactNode } from 'react';
-import styles from './PageContainer.module.css';
 
 interface PageContainerProps {
   children: ReactNode;
@@ -12,16 +11,21 @@ export function PageContainer({
   children,
   variant = 'default',
   className = '',
-  as: Tag = 'div',
+  as: Component = 'div',
 }: PageContainerProps) {
-  const classes = [
-    styles.container,
-    variant === 'fullBleed' ? styles.fullBleed : '',
-    variant === 'narrow' ? styles.narrow : '',
-    className,
-  ]
-    .filter(Boolean)
-    .join(' ');
+  const baseClasses = 'w-full mx-auto px-[clamp(1.25rem,5vw,4rem)]';
+  const variantClasses =
+    variant === 'fullBleed'
+      ? 'max-w-none px-0'
+      : variant === 'narrow'
+      ? 'max-w-[840px]'
+      : 'max-w-[1440px]';
 
-  return <Tag className={classes}>{children}</Tag>;
+  const Element = Component as any;
+
+  return (
+    <Element className={`${baseClasses} ${variantClasses} ${className}`}>
+      {children}
+    </Element>
+  );
 }

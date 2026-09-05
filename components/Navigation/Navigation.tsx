@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import styles from './Navigation.module.css';
 
 const NAV_LINKS = [
   { href: '/#work', label: 'Work', index: '01' },
@@ -50,7 +49,6 @@ export function Navigation() {
     return pathname.startsWith(href);
   };
 
-  /* ── Handle anchor link clicks (smooth scroll on same page) ── */
   const handleLinkClick = (href: string) => {
     setMobileOpen(false);
 
@@ -66,22 +64,33 @@ export function Navigation() {
   return (
     <>
       <nav
-        className={`${styles.nav} ${scrolled ? styles.scrolled : ''} ${mobileOpen ? styles.menuOpen : ''}`}
+        className={`fixed top-0 left-0 right-0 z-[100] flex items-center justify-between px-[clamp(1.25rem,5vw,4rem)] py-6 border-b transition-all duration-300 ease-out backdrop-blur-md ${
+          scrolled
+            ? 'bg-[#080909]/85 border-[#e2e1da]/10 shadow-lg'
+            : 'bg-[#080909]/40 border-transparent'
+        }`}
         role="navigation"
         aria-label="Main navigation"
       >
-        {/* Left — Name */}
-        <Link href="/" className={styles.logo}>
+        {/* Left — Logo */}
+        <Link
+          href="/"
+          className="font-mono text-sm font-semibold tracking-[0.1em] uppercase text-[#e2e1da] hover:text-white transition-colors"
+        >
           Tushar
         </Link>
 
         {/* Center — Links (desktop) */}
-        <div className={styles.links}>
+        <div className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map(({ href, label }) => (
             <Link
               key={href}
               href={href}
-              className={`${styles.link} ${isActive(href) ? styles.linkActive : ''}`}
+              className={`font-mono text-[0.6875rem] font-medium tracking-[0.1em] uppercase transition-colors ${
+                isActive(href)
+                  ? 'text-[#e2e1da]'
+                  : 'text-[#8a8a84] hover:text-[#e2e1da]'
+              }`}
               onClick={() => handleLinkClick(href)}
             >
               {label}
@@ -92,47 +101,58 @@ export function Navigation() {
         {/* Right — Contact (desktop) */}
         <Link
           href="/#about"
-          className={styles.contact}
+          className="hidden md:inline-flex items-center gap-1 font-mono text-[0.6875rem] font-medium tracking-[0.1em] uppercase text-[#e2e1da] hover:text-white transition-colors group"
           onClick={() => handleLinkClick('/#about')}
         >
-          Contact <span className={styles.contactArrow}>↗</span>
+          Contact{' '}
+          <span className="inline-block transition-transform duration-150 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+            ↗
+          </span>
         </Link>
 
-        {/* Mobile toggle — editorial "MENU +" */}
+        {/* Mobile menu toggle button */}
         <button
-          className={styles.menuToggle}
+          className="md:hidden flex items-center gap-1.5 font-mono text-xs font-medium tracking-[0.1em] uppercase text-[#e2e1da] bg-transparent border-none cursor-pointer"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={mobileOpen}
         >
-          Menu
-          <span className={styles.menuToggleIcon}>+</span>
+          <span>{mobileOpen ? 'CLOSE' : 'MENU'}</span>
+          <span className="text-sm">{mobileOpen ? '—' : '+'}</span>
         </button>
       </nav>
 
       {/* Mobile menu overlay */}
       <div
-        className={`${styles.mobileMenu} ${mobileOpen ? styles.mobileMenuOpen : ''}`}
+        className={`fixed inset-0 z-[95] bg-[#080909] flex flex-col justify-center px-8 py-16 gap-8 transition-all duration-300 ${
+          mobileOpen
+            ? 'opacity-100 pointer-events-auto translate-y-0'
+            : 'opacity-0 pointer-events-none -translate-y-4'
+        }`}
         aria-hidden={!mobileOpen}
       >
         {NAV_LINKS.map(({ href, label, index }) => (
           <Link
             key={href}
             href={href}
-            className={styles.mobileLink}
+            className="flex items-center gap-4 text-3xl font-bold tracking-tight text-[#e2e1da] hover:text-white transition-colors"
             onClick={() => handleLinkClick(href)}
           >
-            <span className={styles.mobileLinkIndex}>{index}</span>
+            <span className="font-mono text-xs font-normal text-[#555754] tracking-widest">
+              {index}
+            </span>
             {label}
           </Link>
         ))}
-        <div className={styles.mobileDivider} />
+
+        <div className="w-full h-px bg-[#e2e1da]/10 my-4" />
+
         <Link
           href="/#about"
-          className={styles.mobileContact}
+          className="font-mono text-sm tracking-widest uppercase text-[#8a8a84] hover:text-[#e2e1da] transition-colors flex items-center gap-2"
           onClick={() => handleLinkClick('/#about')}
         >
-          Contact <span className={styles.contactArrow}>↗</span>
+          Contact <span>↗</span>
         </Link>
       </div>
     </>
