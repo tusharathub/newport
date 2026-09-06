@@ -8,34 +8,34 @@
    ============================================================ */
 
 @theme {
-  --color-black: #080909;
-  --color-near-black: #101111;
-  --color-charcoal: #171918;
-  --color-dark-gray: #252725;
-  --color-muted-gray: #555754;
-  --color-warm-gray: #8a8a84;
-  --color-light-gray: #b8b8b2;
-  --color-off-white: #e2e1da;
+  --color-black: #111210;
+  --color-near-black: #181917;
+  --color-charcoal: #20211f;
+  --color-dark-gray: #252623;
+  --color-muted-gray: #343531;
+  --color-warm-gray: #777871;
+  --color-light-gray: #a1a29b;
+  --color-off-white: #e7e6df;
 
-  --color-border-subtle: rgba(226, 225, 218, 0.1);
-  --color-border-hover: rgba(226, 225, 218, 0.18);
-  --color-border-active: rgba(226, 225, 218, 0.25);
+  --color-border-subtle: rgba(231, 230, 223, 0.1);
+  --color-border-hover: rgba(231, 230, 223, 0.18);
+  --color-border-active: rgba(231, 230, 223, 0.25);
 }
 
 :root {
   /* ── Colors ── */
-  --color-black: #080909;
-  --color-near-black: #101111;
-  --color-charcoal: #171918;
-  --color-dark-gray: #252725;
-  --color-muted-gray: #555754;
-  --color-warm-gray: #8a8a84;
-  --color-light-gray: #b8b8b2;
-  --color-off-white: #e2e1da;
+  --color-black: #111210;
+  --color-near-black: #181917;
+  --color-charcoal: #20211f;
+  --color-dark-gray: #252623;
+  --color-muted-gray: #343531;
+  --color-warm-gray: #777871;
+  --color-light-gray: #a1a29b;
+  --color-off-white: #e7e6df;
 
-  --color-border: rgba(226, 225, 218, 0.1);
-  --color-border-hover: rgba(226, 225, 218, 0.18);
-  --color-border-active: rgba(226, 225, 218, 0.25);
+  --color-border: rgba(231, 230, 223, 0.1);
+  --color-border-hover: rgba(231, 230, 223, 0.18);
+  --color-border-active: rgba(231, 230, 223, 0.25);
 
   /* ── Typography ── */
   --font-primary: var(--font-inter), 'Inter', -apple-system, BlinkMacSystemFont,

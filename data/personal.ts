@@ -14,6 +14,8 @@ export interface PersonalConfig {
   email: string;
   github: string;
   linkedin: string;
+  resume?: string;
+  siteUrl: string;
   availability: {
     enabled: boolean;
     label: string;
@@ -33,9 +35,11 @@ export const personalData: PersonalConfig = {
     'My work sits at the intersection of modern AI systems and solid full-stack engineering. I value clean architecture, rapid execution, and software that solves real problems.',
     'Whether engineering RAG retrieval flows, building offline-first mobile apps, or creating full-stack web platforms with streaming AI interfaces, I approach software with technical curiosity and disciplined execution.',
   ],
-  email: 'tushar.nailwal@example.com',
+  email: 'YOUR_EMAIL_HERE',
   github: 'https://github.com/tusharathub',
   linkedin: 'https://linkedin.com/in/tusharnailwal',
+  resume: '/resume.pdf',
+  siteUrl: 'https://tusharnailwal.dev',
   availability: {
     enabled: true,
     label: 'AVAILABLE FOR SELECT PROJECTS & OPPORTUNITIES',

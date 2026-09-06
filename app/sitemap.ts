@@ -2,9 +2,10 @@ import type { MetadataRoute } from 'next';
 import { projects } from '@/data/projects';
 import { labItems } from '@/data/lab';
 import { getPublishedArticles } from '@/data/thoughts';
+import { personalData } from '@/data/personal';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://tusharnailwal.dev';
+  const baseUrl = personalData.siteUrl;
 
   const staticPages = ['', '/work', '/lab', '/thoughts', '/about'].map((route) => ({
     url: `${baseUrl}${route}`,
