@@ -37,13 +37,13 @@ export function ThoughtsSection({ articles }: ThoughtsSectionProps) {
       aria-label="Thoughts"
     >
       <div className="flex flex-col gap-2 mb-12">
-        <span className="font-mono text-[0.625rem] font-medium text-[#555754] tracking-widest uppercase">
-          THOUGHTS — WRITING
+        <span className="font-mono text-[0.625rem] font-medium text-[#777871] tracking-widest uppercase">
+          04 / THOUGHTS — WRITING
         </span>
-        <h2 className="text-3xl md:text-5xl font-bold text-[#e2e1da] tracking-tight">
-          THINGS I&apos;M THINKING ABOUT.
+        <h2 className="font-bodoni font-normal italic text-4xl md:text-7xl text-[#e7e6df] tracking-tight">
+          Things I&apos;m thinking about.
         </h2>
-        <p className="text-base text-[#8a8a84] max-w-xl mt-2 leading-relaxed">
+        <p className="font-body text-base text-[#a1a29b] max-w-xl mt-2 leading-relaxed">
           Notes on software engineering, AI architecture, building products, and the lessons learned along the way.
         </p>
       </div>

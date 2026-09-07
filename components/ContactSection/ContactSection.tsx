@@ -16,12 +16,12 @@ export function ContactSection() {
           </div>
         )}
 
-        {/* Dramatic Final Heading */}
-        <h2 className="text-[clamp(3rem,8vw,7rem)] font-bold text-[#e7e6df] tracking-[-0.05em] leading-none">
+        {/* Dramatic Final Heading — Unbounded poster statement */}
+        <h2 className="font-unbounded font-black text-[clamp(2.8rem,7vw,6.5rem)] text-[#e7e6df] tracking-[-0.04em] leading-[0.9] uppercase">
           LET&apos;S BUILD SOMETHING WORTH SHIPPING.
         </h2>
 
-        <p className="text-xl md:text-2xl text-[#a1a29b] max-w-2xl leading-relaxed">
+        <p className="font-body text-xl md:text-2xl text-[#a1a29b] max-w-2xl leading-relaxed">
           Open to considered collaborations and conversations concerning matters worth bringing into being.
         </p>
 

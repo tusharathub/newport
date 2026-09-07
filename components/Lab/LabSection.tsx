@@ -14,13 +14,13 @@ export function LabSection({ items }: LabSectionProps) {
       aria-label="The Lab"
     >
       <div className="flex flex-col gap-2 mb-12">
-        <span className="font-mono text-[0.625rem] font-medium text-[#555754] tracking-widest uppercase">
-          THE LAB — EXPERIMENTS
+        <span className="font-mono text-[0.625rem] font-medium text-[#777871] tracking-widest uppercase">
+          03 / THE LAB — EXPERIMENTS
         </span>
-        <h2 className="text-3xl md:text-5xl font-bold text-[#e2e1da] tracking-tight">
+        <h2 className="font-unbounded text-3xl md:text-5xl font-black text-[#e7e6df] tracking-tight uppercase">
           THINGS I&apos;M EXPLORING.
         </h2>
-        <p className="text-base text-[#8a8a84] max-w-xl mt-2 leading-relaxed">
+        <p className="font-body text-base text-[#a1a29b] max-w-xl mt-2 leading-relaxed">
           A collection of experiments, prototypes, utilities, and ideas I&apos;m
           exploring to learn and solve interesting problems.
         </p>

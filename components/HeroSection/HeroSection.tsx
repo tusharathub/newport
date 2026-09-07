@@ -73,27 +73,27 @@ export function HeroSection() {
     >
       {/* Top metadata */}
       <div className="flex justify-between items-start w-full opacity-0 animate-hero-fade">
-        <span className="font-mono text-[0.6875rem] text-[#8a8a84] tracking-[0.1em] uppercase">
+        <span className="font-mono text-[0.6875rem] text-[#777871] tracking-[0.15em] uppercase font-medium">
           Tushar Nailwal
         </span>
-        <span className="font-mono text-[0.6875rem] text-[#8a8a84] tracking-[0.1em] uppercase">
+        <span className="font-mono text-[0.6875rem] text-[#777871] tracking-[0.15em] uppercase font-medium">
           AI + Full-Stack Engineer
         </span>
       </div>
 
-      {/* Name — dominant visual title sequence */}
+      {/* Name — Unbounded display graphic sequence */}
       <div
         className="my-auto py-8 w-full flex flex-col items-start select-none z-10"
         ref={nameRef}
       >
         <span className="block overflow-hidden w-full leading-none">
-          <span className="block font-bold text-[clamp(4rem,16vw,13rem)] leading-none text-[#e2e1da] tracking-[-0.06em] animate-hero-reveal">
+          <span className="block font-unbounded font-black text-[clamp(3.5rem,14vw,11.5rem)] leading-[0.85] text-[#e7e6df] tracking-[-0.06em] uppercase animate-hero-reveal">
             TUSHAR
           </span>
         </span>
-        <span className="block overflow-hidden w-full leading-none -mt-[0.15em]">
+        <span className="block overflow-hidden w-full leading-none -mt-[0.05em]">
           <span
-            className="block font-bold text-[clamp(4rem,16vw,13rem)] leading-none text-[#e2e1da] tracking-[-0.06em] animate-hero-reveal"
+            className="block font-unbounded font-black text-[clamp(3.5rem,14vw,11.5rem)] leading-[0.85] text-[#e7e6df] tracking-[-0.06em] uppercase animate-hero-reveal"
             style={{ animationDelay: '150ms' }}
           >
             NAILWAL
@@ -103,22 +103,23 @@ export function HeroSection() {
 
       {/* Bottom row — identity left, metadata right */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-end w-full z-10">
-        <div className="opacity-0 animate-hero-fade" style={{ animationDelay: '300ms' }} ref={bottomLeftRef}>
-          <p className="text-lg md:text-xl text-[#8a8a84] leading-relaxed max-w-md">
-            I build, merely to indulge my curiosity.
-            <br />
-            from AI applications and full stack products to mobile apps.
+        <div className="opacity-0 animate-hero-fade flex flex-col gap-2 max-w-lg" style={{ animationDelay: '300ms' }} ref={bottomLeftRef}>
+          <p className="font-body text-lg md:text-xl text-[#e7e6df] font-medium leading-snug">
+            I build things that interest me — from AI applications and full-stack products to mobile apps.
+          </p>
+          <p className="font-body text-xs md:text-sm text-[#a1a29b] leading-relaxed">
+            Full-stack software engineer moving deeper into AI. I learn by building, experimenting, and finishing what I start.
           </p>
         </div>
 
         <div className="flex flex-col md:items-end gap-2 opacity-0 animate-hero-fade" style={{ animationDelay: '400ms' }}>
           <div className="flex items-center gap-3 font-mono text-xs">
-            <span className="text-[#555754]">01</span>
-            <span className="text-[#8a8a84] uppercase tracking-wider">Based in India</span>
+            <span className="text-[#777871]">01</span>
+            <span className="text-[#a1a29b] uppercase tracking-wider">Based in India</span>
           </div>
           <div className="flex items-center gap-3 font-mono text-xs">
-            <span className="text-[#555754]">02</span>
-            <span className="text-[#8a8a84] uppercase tracking-wider">Building Software</span>
+            <span className="text-[#777871]">02</span>
+            <span className="text-[#a1a29b] uppercase tracking-wider">Building Software</span>
           </div>
         </div>
       </div>

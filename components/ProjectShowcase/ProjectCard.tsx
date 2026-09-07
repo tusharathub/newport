@@ -54,22 +54,22 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
         {/* Project Metadata & Description */}
         <div className="flex flex-col gap-4 max-w-[540px]">
           <div className="flex items-center gap-4">
-            <span className="font-mono text-sm font-medium text-[#555754] tracking-wider">
+            <span className="font-mono text-sm font-medium text-[#777871] tracking-wider">
               {project.id}
             </span>
-            <span className="font-mono text-[0.625rem] font-medium text-[#8a8a84] tracking-widest uppercase">
+            <span className="font-mono text-[0.625rem] font-medium text-[#a1a29b] tracking-widest uppercase">
               {project.category}
             </span>
           </div>
 
           <Link
             href={projectHref}
-            className="text-2xl md:text-4xl font-bold text-[#e2e1da] hover:text-white tracking-tight leading-tight transition-colors"
+            className="font-big-shoulders text-4xl md:text-7xl font-black text-[#e7e6df] hover:text-white tracking-tight leading-[0.9] uppercase transition-colors"
           >
             {project.title}
           </Link>
 
-          <p className="text-base text-[#8a8a84] leading-relaxed">
+          <p className="font-body text-base text-[#a1a29b] leading-relaxed">
             {project.description}
           </p>
 

@@ -35,7 +35,7 @@ export function ArticleRow({ article, index }: ArticleRowProps) {
 
           <Link
             href={articleHref}
-            className="text-xl md:text-3xl font-bold text-[#e2e1da] group-hover:text-white transition-colors tracking-tight"
+            className="font-bodoni text-2xl md:text-4xl font-normal text-[#e7e6df] group-hover:text-white transition-colors tracking-tight"
           >
             {article.title}
           </Link>

@@ -14,10 +14,10 @@ export function WorkSection({ projects }: WorkSectionProps) {
       aria-label="Selected Work"
     >
       <div className="flex flex-col gap-2 mb-12">
-        <span className="font-mono text-[0.625rem] font-medium text-[#555754] tracking-widest uppercase">
-          SELECTED WORK
+        <span className="font-mono text-[0.625rem] font-medium text-[#777871] tracking-widest uppercase">
+          01 / SELECTED WORK
         </span>
-        <h2 className="text-3xl md:text-5xl font-bold text-[#e2e1da] tracking-tight">
+        <h2 className="font-big-shoulders text-4xl md:text-6xl font-black text-[#e7e6df] tracking-wide uppercase">
           SELECTED PROJECTS
         </h2>
       </div>

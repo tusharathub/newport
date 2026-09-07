@@ -26,7 +26,7 @@ export function LabItemCard({ item }: LabItemCardProps) {
 
           <Link
             href={itemHref}
-            className="text-xl md:text-2xl font-bold text-[#e2e1da] group-hover:text-white transition-colors tracking-tight"
+            className="font-syne text-xl md:text-3xl font-extrabold text-[#e7e6df] group-hover:text-white transition-colors tracking-tight uppercase"
           >
             {item.title}
           </Link>

@@ -20,6 +20,13 @@
   --color-border-subtle: rgba(231, 230, 223, 0.1);
   --color-border-hover: rgba(231, 230, 223, 0.18);
   --color-border-active: rgba(231, 230, 223, 0.25);
+
+  --font-unbounded: var(--font-unbounded), sans-serif;
+  --font-big-shoulders: var(--font-big-shoulders), sans-serif;
+  --font-bodoni: var(--font-bodoni), Georgia, serif;
+  --font-mono: var(--font-mono), 'IBM Plex Mono', monospace;
+  --font-body: var(--font-body), 'Plus Jakarta Sans', sans-serif;
+  --font-syne: var(--font-syne), sans-serif;
 }
 
 :root {
@@ -37,10 +44,15 @@
   --color-border-hover: rgba(231, 230, 223, 0.18);
   --color-border-active: rgba(231, 230, 223, 0.25);
 
-  /* ── Typography ── */
-  --font-primary: var(--font-inter), 'Inter', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', sans-serif;
-  --font-mono: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+  /* ── Typography Art-Directed System ── */
+  --font-unbounded: var(--font-unbounded), sans-serif;
+  --font-big-shoulders: var(--font-big-shoulders), sans-serif;
+  --font-bodoni: var(--font-bodoni), Georgia, serif;
+  --font-mono: var(--font-mono), 'IBM Plex Mono', monospace;
+  --font-body: var(--font-body), 'Plus Jakarta Sans', sans-serif;
+  --font-syne: var(--font-syne), sans-serif;
+
+  --font-primary: var(--font-body), 'Plus Jakarta Sans', sans-serif;
 
   /* Size scale */
   --text-2xs: 0.625rem;
@@ -240,4 +252,28 @@ a {
 
 .animate-orbit {
   animation: orbitSpin 60s linear infinite;
+}
+
+.font-unbounded {
+  font-family: var(--font-unbounded);
+}
+
+.font-big-shoulders {
+  font-family: var(--font-big-shoulders);
+}
+
+.font-bodoni {
+  font-family: var(--font-bodoni);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+.font-syne {
+  font-family: var(--font-syne);
 }
