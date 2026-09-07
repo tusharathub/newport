@@ -14,7 +14,7 @@ export interface PersonalConfig {
   email: string;
   github: string;
   linkedin: string;
-  resume?: string;
+  resume: string;
   siteUrl: string;
   availability: {
     enabled: boolean;
@@ -22,61 +22,75 @@ export interface PersonalConfig {
   };
   currentFocus: string[];
   capabilities: Capability[];
+  workingPhilosophy: {
+    title: string;
+    statement: string;
+    body: string;
+  };
 }
 
 export const personalData: PersonalConfig = {
   name: 'Tushar Nailwal',
   title: 'AI + Full-Stack Engineer',
-  location: 'India',
+  location: 'Chd, In',
   shortBio:
-    'I build software across AI applications, full-stack web products, mobile apps, and automation pipelines.',
+    'I build things that interest me from AI applications to mobile apps.',
   fullBio: [
-    'I like taking an idea, figuring out how it should work, and then actually building it.',
-    'My work sits at the intersection of modern AI systems and solid full-stack engineering. I value clean architecture, rapid execution, and software that solves real problems.',
-    'Whether engineering RAG retrieval flows, building offline-first mobile apps, or creating full-stack web platforms with streaming AI interfaces, I approach software with technical curiosity and disciplined execution.',
+    "I'm a full-stack software engineer who enjoys building things across the stack, AI applications, web products, and Android apps. Over time, I've found myself increasingly drawn toward AI, and I'm working my way deeper into AI engineering.",
+    "I don't always start with a problem that needs solving. Sometimes I just come across something interesting and want to know how it works. So I build it.",
+    "My approach is simple: make something work first, then make it better. I like getting ideas out of my head and into something real. Once it's working, I can obsess over the details, architecture, UX, and everything that makes it better.",
+    "I'm ambitious, curious, and probably more attached to a project than I should be once I've started it. If I decide I'm going to build something, I tend to stick with it until it's finished.",
+    "Right now, I'm focused on becoming a stronger AI engineer while continuing to build across the full stack.",
   ],
-  email: 'YOUR_EMAIL_HERE',
+  email: 'tushar.chd17@gmail.com',
   github: 'https://github.com/tusharathub',
-  linkedin: 'https://linkedin.com/in/tusharnailwal',
-  resume: '/resume.pdf',
+  linkedin: 'https://www.linkedin.com/in/tushar-nailwal/',
+  resume: 'https://plum-ethyl-86.tiiny.site/',
   siteUrl: 'https://tusharnailwal.dev',
   availability: {
     enabled: true,
     label: 'AVAILABLE FOR SELECT PROJECTS & OPPORTUNITIES',
   },
   currentFocus: [
-    'AI Application Architecture & RAG Retrieval Quality',
-    'Local-First Data Persistence & Offline Mobile Systems',
-    'Full-Stack TypeScript & Streaming LLM Interfaces',
+    'AI Engineering & AI Application Development',
+    'RAG & Retrieval Systems',
+    'LLM-Powered Applications & Python for AI',
+    'Full-Stack AI Applications',
+    'Experimenting & Building New Ideas',
   ],
   capabilities: [
     {
       id: '01',
       category: 'AI ENGINEERING',
-      skills: ['Python', 'RAG', 'Vector Search', 'Embeddings', 'LLM APIs', 'Prompt Design'],
+      skills: ['Python', 'RAG', 'Vector Search', 'Embeddings', 'LLM APIs', 'Prompt Engineering'],
       description:
-        'Building context-grounded retrieval pipelines, vector similarity indexers, and structured AI response synthesis.',
+        'Building AI-powered applications and experimenting with LLMs, RAG, retrieval, embeddings, and AI-driven product experiences.',
     },
     {
       id: '02',
       category: 'FULL-STACK DEVELOPMENT',
       skills: ['Next.js', 'React', 'TypeScript', 'Node.js', 'Tailwind CSS', 'REST APIs'],
       description:
-        'Developing performant web applications with modern server-side rendering, type-safe APIs, and responsive UIs.',
+        'Building complete web applications from frontend interfaces to backend systems, APIs, databases, authentication, and deployment.',
     },
     {
       id: '03',
       category: 'MOBILE DEVELOPMENT',
-      skills: ['React Native', 'Local-First Architecture', 'SQLite', 'Mobile UX'],
+      skills: ['Android', 'React Native', 'SQLite', 'Mobile UX', 'Local-First'],
       description:
-        'Engineering fast mobile applications prioritized around offline persistence and zero-latency local storage.',
+        'Building Android/mobile applications with a focus on practical functionality and clean user experiences.',
     },
     {
       id: '04',
       category: 'AUTOMATION & DATA',
-      skills: ['Python', 'Web Scraping', 'Data Extraction', 'Schema Validation', 'Asyncio'],
+      skills: ['Python', 'Web Scraping', 'Data Extraction', 'Schema Validation', 'Data Pipelines'],
       description:
-        'Creating resilient extraction pipelines, automated DOM parsing scripts, and structured dataset exporters.',
+        'Building scrapers, automation tools, data pipelines, and systems that turn messy information into something useful.',
     },
   ],
+  workingPhilosophy: {
+    title: 'BUILD FIRST. POLISH LATER.',
+    statement: "I don't believe everything needs to be figured out before you start.",
+    body: 'I prefer to build the first version, make it work, understand what I learn from it, and then improve it. Working software gives you something to think about.',
+  },
 };

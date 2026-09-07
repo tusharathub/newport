@@ -105,11 +105,9 @@ export function HeroSection() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-end w-full z-10">
         <div className="opacity-0 animate-hero-fade" style={{ animationDelay: '300ms' }} ref={bottomLeftRef}>
           <p className="text-lg md:text-xl text-[#8a8a84] leading-relaxed max-w-md">
-            I build things — AI applications,
+            I build, merely to indulge my curiosity.
             <br />
-            full-stack products, and software
-            <br />
-            that works.
+            from AI applications and full stack products to mobile apps.
           </p>
         </div>
 

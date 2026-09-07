@@ -17,19 +17,19 @@ export function ContactSection() {
         )}
 
         {/* Dramatic Final Heading */}
-        <h2 className="text-[clamp(3rem,8vw,7rem)] font-bold text-[#e2e1da] tracking-[-0.05em] leading-none">
+        <h2 className="text-[clamp(3rem,8vw,7rem)] font-bold text-[#e7e6df] tracking-[-0.05em] leading-none">
           LET&apos;S BUILD SOMETHING WORTH SHIPPING.
         </h2>
 
-        <p className="text-xl md:text-2xl text-[#8a8a84] max-w-2xl leading-relaxed">
-          Have an interesting project, engineering challenge, or opportunity in mind? Get in touch.
+        <p className="text-xl md:text-2xl text-[#a1a29b] max-w-2xl leading-relaxed">
+          Open to considered collaborations and conversations concerning matters worth bringing into being.
         </p>
 
-        {/* Direct Email Action & Social Links */}
+        {/* Direct Email Action & Social/Resume Links */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 pt-4">
           {/* <a
             href={`mailto:${personalData.email}`}
-            className="inline-flex items-center gap-3 px-8 py-4 bg-[#e2e1da] text-[#080909] font-mono text-sm font-semibold tracking-widest uppercase hover:bg-white transition-colors rounded-sm group"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-[#e7e6df] text-[#111210] font-mono text-sm font-semibold tracking-widest uppercase hover:bg-white transition-colors rounded-sm group"
           >
             <span>SAY HELLO</span>
             <span className="transition-transform duration-150 group-hover:translate-x-1 group-hover:-translate-y-1">
@@ -37,13 +37,13 @@ export function ContactSection() {
             </span>
           </a> */}
 
-          <div className="flex items-center gap-6 font-mono text-xs text-[#8a8a84]">
+          <div className="flex items-center gap-6 font-mono text-xs text-[#a1a29b]">
             {personalData.github && (
               <a
                 href={personalData.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-[#e2e1da] transition-colors"
+                className="hover:text-[#e7e6df] transition-colors"
               >
                 GITHUB
               </a>
@@ -53,9 +53,19 @@ export function ContactSection() {
                 href={personalData.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-[#e2e1da] transition-colors"
+                className="hover:text-[#e7e6df] transition-colors"
               >
                 LINKEDIN
+              </a>
+            )}
+            {personalData.resume && (
+              <a
+                href={personalData.resume}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[#e7e6df] transition-colors"
+              >
+                RESUME
               </a>
             )}
           </div>

@@ -105,20 +105,20 @@ export function ProjectMedia({ project, priority = false }: ProjectMediaProps) {
 
         {/* Python Web Scraper Abstract Visual */}
         {project.slug === 'python-web-scraper' && (
-          <div className="flex flex-col gap-2 my-auto font-mono text-xs text-[#8a8a84]">
+          <div className="flex flex-col gap-2 my-auto font-mono text-xs text-[#a1a29b]">
             <div className="flex gap-3">
-              <span className="text-[#555754]">GET</span>
-              <span className="text-[#e2e1da]">https://api.target/stream</span>
+              <span className="text-[#777871]">PIPELINE</span>
+              <span className="text-[#e7e6df]">INPUT → PARSE → STRUCTURE → EXPORT</span>
             </div>
             <div className="flex gap-3">
-              <span className="text-[#555754]">PARSE</span>
-              <span className="text-[#e2e1da]">
+              <span className="text-[#777871]">PARSE</span>
+              <span className="text-[#e7e6df]">
                 DOM.querySelectorAll(&quot;.item&quot;)
               </span>
             </div>
             <div className="flex gap-3">
-              <span className="text-[#555754]">EXPORT</span>
-              <span className="text-[#e2e1da]">
+              <span className="text-[#777871]">EXPORT</span>
+              <span className="text-[#e7e6df]">
                 Structured JSON — 1,420 records
               </span>
             </div>

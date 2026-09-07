@@ -43,6 +43,16 @@ export function Footer() {
           >
             EMAIL
           </a>
+          {personalData.resume && (
+            <a
+              href={personalData.resume}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#8a8a84] transition-colors"
+            >
+              RESUME
+            </a>
+          )}
         </div>
 
         {/* Right: Scroll to top */}
