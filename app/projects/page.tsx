@@ -10,7 +10,12 @@ export const metadata: Metadata = {
 export default function ProjectsPage() {
   return (
     <main style={{ paddingTop: 'var(--space-4xl)' }}>
-      <WorkSection projects={projects} />
+      <WorkSection
+        projects={projects}
+        title="ALL PROJECTS"
+        subtitle="Complete collection of AI, full-stack, mobile, and automation projects."
+        showViewAll={false}
+      />
     </main>
   );
 }

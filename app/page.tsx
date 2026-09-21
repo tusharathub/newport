@@ -3,9 +3,16 @@ import { TransitionBridge } from '@/components/TransitionBridge/TransitionBridge
 import { WorkSection } from '@/components/WorkSection/WorkSection';
 import { AboutSection } from '@/components/AboutSection/AboutSection';
 import { ContactSection } from '@/components/ContactSection/ContactSection';
-import { projects } from '@/data/projects';
+import { getProjectBySlug } from '@/data/projects';
+import { Project } from '@/types/project';
 
 export default function Home() {
+  const featuredProjects = [
+    getProjectBySlug('rag-application'),
+    getProjectBySlug('python-web-scraper'),
+    getProjectBySlug('notablecv'),
+  ].filter(Boolean) as Project[];
+
   return (
     <>
       {/* ── Hero ── */}
@@ -15,7 +22,7 @@ export default function Home() {
       <TransitionBridge />
 
       {/* ── Selected Work ── */}
-      <WorkSection projects={projects} />
+      <WorkSection projects={featuredProjects} />
 
       {/* ── About ── */}
       <AboutSection />
