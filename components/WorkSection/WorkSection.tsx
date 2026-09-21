@@ -34,10 +34,10 @@ export function WorkSection({ projects }: WorkSectionProps) {
 
       <div className="mt-16 flex justify-end">
         <Link
-          href="/work"
+          href="/projects"
           className="inline-flex items-center gap-2 font-mono text-xs font-medium text-[#8a8a84] hover:text-[#e2e1da] tracking-widest uppercase py-2 border-b border-[#e2e1da]/10 hover:border-[#e2e1da] transition-colors group"
         >
-          <span>VIEW ALL WORK</span>
+          <span>VIEW ALL PROJECTS</span>
           <span className="transition-transform duration-150 group-hover:translate-x-1 group-hover:-translate-y-1">
             ↗
           </span>

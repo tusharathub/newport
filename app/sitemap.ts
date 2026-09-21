@@ -1,13 +1,11 @@
 import type { MetadataRoute } from 'next';
 import { projects } from '@/data/projects';
-import { labItems } from '@/data/lab';
-import { getPublishedArticles } from '@/data/thoughts';
 import { personalData } from '@/data/personal';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = personalData.siteUrl;
 
-  const staticPages = ['', '/work', '/lab', '/thoughts', '/about'].map((route) => ({
+  const staticPages = ['', '/projects', '/work', '/about'].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
@@ -21,19 +19,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   }));
 
-  const labPages = labItems.map((l) => ({
-    url: `${baseUrl}/lab/${l.slug}`,
-    lastModified: new Date(),
-    changeFrequency: 'monthly' as const,
-    priority: 0.7,
-  }));
-
-  const thoughtPages = getPublishedArticles().map((a) => ({
-    url: `${baseUrl}/thoughts/${a.slug}`,
-    lastModified: new Date(),
-    changeFrequency: 'monthly' as const,
-    priority: 0.7,
-  }));
-
-  return [...staticPages, ...projectPages, ...labPages, ...thoughtPages];
+  return [...staticPages, ...projectPages];
 }
+

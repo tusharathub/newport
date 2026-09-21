@@ -5,10 +5,10 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 const NAV_LINKS = [
-  { href: '/#work', label: 'Work', index: '01' },
-  { href: '/lab', label: 'Lab', index: '02' },
-  { href: '/thoughts', label: 'Thoughts', index: '03' },
-  { href: '/#about', label: 'About', index: '04' },
+  { href: '/', label: 'Home', index: '01' },
+  { href: '/projects', label: 'Projects', index: '02' },
+  { href: '/#about', label: 'About', index: '03' },
+  { href: '/#contact', label: 'Contact', index: '04' },
 ] as const;
 
 export function Navigation() {
@@ -100,9 +100,9 @@ export function Navigation() {
 
         {/* Right — Contact (desktop) */}
         <Link
-          href="/#about"
+          href="/#contact"
           className="hidden md:inline-flex items-center gap-1 font-mono text-[0.6875rem] font-medium tracking-[0.1em] uppercase text-[#e2e1da] hover:text-white transition-colors group"
-          onClick={() => handleLinkClick('/#about')}
+          onClick={() => handleLinkClick('/#contact')}
         >
           Contact{' '}
           <span className="inline-block transition-transform duration-150 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
