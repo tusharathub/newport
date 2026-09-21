@@ -32,6 +32,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return { title: 'Project Not Found — Tushar Nailwal' };
   }
 
+  if (slug === 'rag-application') {
+    return {
+      title: 'Talk to Your Data — RAG Application | Tushar Nailwal',
+      description: project.description,
+    };
+  }
+
   return {
     title: `${project.title} — Case Study — Tushar Nailwal`,
     description: project.description,
