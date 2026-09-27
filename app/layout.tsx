@@ -82,9 +82,6 @@ export default function RootLayout({
 
           {/* Main content */}
           <div className="relative z-10">{children}</div>
-
-          {/* Footer */}
-          <Footer />
         </CustomCursorProvider>
       </body>
     </html>

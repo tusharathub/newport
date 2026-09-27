@@ -30,14 +30,13 @@ export function ProjectCard({
           observer.unobserve(el);
         }
       },
-      { threshold: 0.15 }
+      { threshold: 0.1 }
     );
 
     observer.observe(el);
     return () => observer.disconnect();
   }, []);
 
-  const gridClass = getGridClass(project.layoutVariant);
   const projectHref = `/work/${project.slug}`;
   const displayNumber = (index !== undefined ? index + 1 : parseInt(project.id, 10) || 1)
     .toString()
@@ -46,69 +45,94 @@ export function ProjectCard({
   return (
     <article
       ref={cardRef}
-      className={`w-full pb-16 md:pb-24 border-b border-[#e2e1da]/10 transition-all duration-700 ease-out ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+      className={`w-full py-10 md:py-14 transition-all duration-700 ease-out ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
       }`}
+      style={{ borderBottom: '1px solid rgba(26,26,24,0.12)' }}
       aria-label={`Project: ${project.title}`}
     >
-      <div className={`grid gap-10 lg:gap-14 items-center ${gridClass}`}>
-        {/* Visual Media Showcase */}
-        <div
-          className={`group relative w-full cursor-pointer ${
-            project.layoutVariant === 'reversed' ? 'lg:order-2' : ''
-          }`}
-        >
-          <Link href={projectHref} tabIndex={-1} aria-hidden="true">
-            <ProjectMedia project={project} priority={priority} />
-          </Link>
-        </div>
-
-        {/* Project Metadata & Description */}
-        <div className="flex flex-col gap-5 max-w-[580px]">
-          {/* Project Number & Category */}
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-8 lg:gap-14 items-start">
+        {/* Left — Project Info */}
+        <div className="flex flex-col gap-5">
+          {/* Number & Category */}
           <div className="flex items-center gap-3">
-            <span className="font-mono text-sm font-semibold text-[#8a8a84] tracking-widest">
+            <span
+              className="font-mono text-sm font-semibold tracking-widest"
+              style={{ color: '#8a8a7e' }}
+            >
               {displayNumber}
             </span>
-            <span className="text-[#343531] font-mono text-xs">•</span>
-            <span className="font-mono text-xs font-semibold text-[#8a8a84] tracking-widest uppercase">
+            <span className="font-mono text-xs" style={{ color: '#c4c0b8' }}>
+              •
+            </span>
+            <span
+              className="font-mono text-xs font-semibold tracking-[0.15em] uppercase"
+              style={{ color: '#8a8a7e' }}
+            >
               {project.category}
             </span>
           </div>
 
-          {/* Project Title */}
+          {/* Title */}
           <Link
             href={projectHref}
-            className="font-big-shoulders text-4xl sm:text-5xl lg:text-7xl font-black text-[#e7e6df] hover:text-white tracking-tight leading-[0.95] uppercase transition-colors"
+            className="font-big-shoulders text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[0.95] uppercase transition-colors duration-200"
+            style={{ color: '#1a1a18' }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.color = '#3a3a34';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.color = '#1a1a18';
+            }}
           >
             {project.title}
           </Link>
 
           {/* Description */}
-          <p className="font-body text-base md:text-lg text-[#a1a29b] leading-relaxed">
+          <p
+            className="font-body text-base leading-relaxed max-w-md"
+            style={{ color: '#5a5a54' }}
+          >
             {project.description}
           </p>
 
           {/* Technologies */}
           {project.technologies && project.technologies.length > 0 && (
-            <div className="flex flex-wrap gap-x-2.5 gap-y-1.5 pt-1 font-mono text-xs text-[#777871]">
+            <div
+              className="flex flex-wrap gap-x-2.5 gap-y-1.5 pt-1 font-mono text-xs"
+              style={{ color: '#8a8a7e' }}
+            >
               {project.technologies.map((tech, idx) => (
                 <span key={tech} className="inline-flex items-center gap-2.5">
                   <span>{tech}</span>
                   {idx < project.technologies!.length - 1 && (
-                    <span className="text-[#343531]">·</span>
+                    <span style={{ color: '#c4c0b8' }}>·</span>
                   )}
                 </span>
               ))}
             </div>
           )}
 
-          {/* CTAs & External Links */}
-          <div className="flex flex-col sm:flex-row sm:items-center gap-5 pt-3 mt-1">
-            {/* Main Primary CTA */}
+          {/* CTA Links */}
+          <div className="flex flex-col sm:flex-row sm:items-center gap-4 pt-3">
             <Link
               href={projectHref}
-              className="inline-flex items-center gap-2.5 font-mono text-xs font-semibold text-[#e7e6df] hover:text-white tracking-widest uppercase px-6 py-3.5 bg-[#181917] border border-[#e2e1da]/15 hover:border-[#e2e1da]/40 hover:bg-[#20211f] rounded-sm transition-all duration-200 group/cta w-fit shadow-sm"
+              className="inline-flex items-center gap-2.5 font-mono text-xs font-semibold tracking-[0.12em] uppercase px-6 py-3.5 border rounded-sm transition-all duration-300 group/cta w-fit"
+              style={{
+                color: '#1a1a18',
+                borderColor: 'rgba(26,26,24,0.2)',
+                backgroundColor: 'transparent',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = '#1a1a18';
+                e.currentTarget.style.color = '#ece8e1';
+                e.currentTarget.style.borderColor = '#1a1a18';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = 'transparent';
+                e.currentTarget.style.color = '#1a1a18';
+                e.currentTarget.style.borderColor = 'rgba(26,26,24,0.2)';
+              }}
             >
               <span>VIEW PROJECT</span>
               <span className="transition-transform duration-200 group-hover/cta:translate-x-1">
@@ -116,14 +140,20 @@ export function ProjectCard({
               </span>
             </Link>
 
-            {/* Secondary Links */}
             <div className="flex items-center gap-5">
               {project.githubUrl && (
                 <a
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-mono text-xs font-medium text-[#8a8a84] hover:text-[#e7e6df] tracking-widest uppercase transition-colors inline-flex items-center gap-1 group/gh"
+                  className="font-mono text-xs font-medium tracking-[0.12em] uppercase transition-colors duration-200 inline-flex items-center gap-1 group/gh"
+                  style={{ color: '#8a8a7e' }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = '#1a1a18';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = '#8a8a7e';
+                  }}
                 >
                   <span>GITHUB</span>
                   <span className="inline-block transition-transform duration-150 group-hover/gh:translate-x-0.5 group-hover/gh:-translate-y-0.5">
@@ -137,7 +167,14 @@ export function ProjectCard({
                   href={project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-mono text-xs font-medium text-[#8a8a84] hover:text-[#e7e6df] tracking-widest uppercase transition-colors inline-flex items-center gap-1 group/live"
+                  className="font-mono text-xs font-medium tracking-[0.12em] uppercase transition-colors duration-200 inline-flex items-center gap-1 group/live"
+                  style={{ color: '#8a8a7e' }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = '#1a1a18';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = '#8a8a7e';
+                  }}
                 >
                   <span>LIVE</span>
                   <span className="inline-block transition-transform duration-150 group-hover/live:translate-x-0.5 group-hover/live:-translate-y-0.5">
@@ -148,21 +185,14 @@ export function ProjectCard({
             </div>
           </div>
         </div>
+
+        {/* Right — Project Media */}
+        <div className="group relative w-full cursor-pointer">
+          <Link href={projectHref} tabIndex={-1} aria-hidden="true">
+            <ProjectMedia project={project} priority={priority} />
+          </Link>
+        </div>
       </div>
     </article>
   );
-}
-
-function getGridClass(variant?: string) {
-  switch (variant) {
-    case 'reversed':
-      return 'grid-cols-1 lg:grid-cols-[1fr_1.2fr]';
-    case 'full':
-      return 'grid-cols-1';
-    case 'offset':
-      return 'grid-cols-1 lg:grid-cols-[1.2fr_1fr]';
-    case 'default':
-    default:
-      return 'grid-cols-1 lg:grid-cols-[1.3fr_1fr]';
-  }
 }
