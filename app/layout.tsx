@@ -13,6 +13,7 @@ import { CustomCursorProvider } from '@/components/CustomCursor/CustomCursor';
 import { Footer } from '@/components/Footer/Footer';
 import { personalData } from '@/data/personal';
 import './globals.css';
+import { SmoothScroll } from '@/components/SmoothScroll/SmoothScroll';
 
 const unbounded = Unbounded({
   subsets: ['latin'],
@@ -73,6 +74,8 @@ export default function RootLayout({
       className={`${unbounded.variable} ${bigShoulders.variable} ${bodoniModa.variable} ${ibmPlexMono.variable} ${jakartaSans.variable} ${syne.variable}`}
     >
       <body>
+        <SmoothScroll>
+
         <CustomCursorProvider>
           {/* Film grain texture */}
           <GrainOverlay />
@@ -83,6 +86,7 @@ export default function RootLayout({
           {/* Main content */}
           <div className="relative z-10">{children}</div>
         </CustomCursorProvider>
+        </SmoothScroll>
       </body>
     </html>
   );
