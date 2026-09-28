@@ -75,10 +75,10 @@ export function HeroSection() {
       {/* Top metadata */}
       <div className="flex justify-between items-start w-full opacity-0 animate-hero-fade">
         <span className="font-mono text-[0.6875rem] text-[#777871] tracking-[0.15em] uppercase font-medium">
-          Tushar Nailwal
+          
         </span>
         <span className="font-mono text-[0.6875rem] text-[#777871] tracking-[0.15em] uppercase font-medium">
-          AI + Full-Stack Engineer
+          Full-Stack Engineer
         </span>
       </div>
 
@@ -106,7 +106,7 @@ export function HeroSection() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-end w-full z-10">
         <div className="opacity-0 animate-hero-fade flex flex-col gap-2 max-w-lg" style={{ animationDelay: '300ms' }} ref={bottomLeftRef}>
           <p className="font-body text-lg md:text-xl text-[#e7e6df] font-medium leading-snug">
-            I build things that interest me — from AI applications and full-stack products to mobile apps.
+            I build things that interest me, from AI applications and full-stack products to mobile apps.
           </p>
           <p className="font-body text-xs md:text-sm text-[#a1a29b] leading-relaxed">
             Full-stack software engineer moving deeper into AI. I learn by building, experimenting, and finishing what I start.
@@ -116,7 +116,7 @@ export function HeroSection() {
         <div className="flex flex-col md:items-end gap-2 opacity-0 animate-hero-fade" style={{ animationDelay: '400ms' }}>
           <div className="flex items-center gap-3 font-mono text-xs">
             <span className="text-[#777871]">01</span>
-            <span className="text-[#a1a29b] uppercase tracking-wider">Based in India</span>
+            <span className="text-[#a1a29b] uppercase tracking-wider">Based in Ch, In</span>
           </div>
           <div className="flex items-center gap-3 font-mono text-xs">
             <span className="text-[#777871]">02</span>

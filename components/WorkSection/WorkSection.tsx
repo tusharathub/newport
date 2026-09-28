@@ -11,13 +11,15 @@ interface WorkSectionProps {
   showViewAll?: boolean;
 }
 
-// Curated rich color palette for project row hovers (Fedrigoni style)
-const ROW_COLORS = [
-  { bg: '#4a154b', text: '#ffffff', subtext: 'rgba(255,255,255,0.7)' }, // Deep Purple
-  { bg: '#c41230', text: '#ffffff', subtext: 'rgba(255,255,255,0.7)' }, // Crimson Red
-  { bg: '#1d5238', text: '#ffffff', subtext: 'rgba(255,255,255,0.7)' }, // Forest Green
-  { bg: '#0f3c5c', text: '#ffffff', subtext: 'rgba(255,255,255,0.7)' }, // Deep Cobalt Blue
-];
+// Curated color palette matched directly to project screenshots
+const ROW_COLORS: Record<string, { bg: string; text: string; subtext: string }> = {
+  'rag-application': { bg: '#d97706', text: '#ffffff', subtext: 'rgba(255,255,255,0.7)' }, // DocsOrbit (Amber UI theme)
+  'water-tracking-app': { bg: '#e0905aff', text: '#ffffff', subtext: 'rgba(255,255,255,0.7)' }, // Water App (Hydration Blue)
+  'routine-melt': { bg: '#15973cff', text: '#ffffff', subtext: 'rgba(255,255,255,0.7)' }, // RoutineMelt (Brutalist Red)
+  'python-web-scraper': { bg: '#d3cf00ff', text: '#ffffff', subtext: 'rgba(255,255,255,0.7)' }, // Python Web Scraper (ETL Slate)
+};
+
+const DEFAULT_ROW_COLOR = { bg: '#1a1a18', text: '#ffffff', subtext: 'rgba(255,255,255,0.7)' };
 
 export function WorkSection({
   projects,
@@ -29,7 +31,6 @@ export function WorkSection({
   // Active & Previous project state for cross-fade overlap effect
   const [activeProjectId, setActiveProjectId] = useState<string | null>(null);
   const [prevProjectId, setPrevProjectId] = useState<string | null>(null);
-  const [activeColor, setActiveColor] = useState<typeof ROW_COLORS[0] | null>(null);
 
   // Section-relative mouse position
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -66,22 +67,20 @@ export function WorkSection({
     }, 800);
   };
 
-  const handleMouseEnterRow = (project: Project, index: number) => {
+  const handleMouseEnterRow = (project: Project) => {
     if (activeProjectId && activeProjectId !== project.id) {
       setPrevProjectId(activeProjectId);
       if (prevTimer.current) clearTimeout(prevTimer.current);
       prevTimer.current = setTimeout(() => {
         setPrevProjectId(null);
-      }, 500); // 500ms slow fade out for previous image
+      }, 500);
     }
     setActiveProjectId(project.id);
-    setActiveColor(ROW_COLORS[index % ROW_COLORS.length]);
   };
 
   const handleMouseLeaveSection = () => {
     setPrevProjectId(activeProjectId);
     setActiveProjectId(null);
-    setActiveColor(null);
     setIsMoving(false);
     if (prevTimer.current) clearTimeout(prevTimer.current);
     prevTimer.current = setTimeout(() => {
@@ -105,7 +104,7 @@ export function WorkSection({
           <span className="font-mono text-xs font-semibold tracking-[0.2em] uppercase text-[#1a1a18]">
             {title}
           </span>
-          <div className="w-12 h-px bg-[#1a1a18]/25" />
+          {/* <div className="w-12 h-px bg-[#1a1a18]/25" /> */}
         </div>
         <span className="font-mono text-xs text-[#5a5a54]">
           (HOVER TO EXPLORE)
@@ -116,7 +115,7 @@ export function WorkSection({
       <div className="w-full flex flex-col divide-y divide-[#1a1a18]/15 border-b border-[#1a1a18]/15">
         {projects.map((project, index) => {
           const isCurrentHovered = activeProjectId === project.id;
-          const rowColor = ROW_COLORS[index % ROW_COLORS.length];
+          const rowColor = ROW_COLORS[project.slug] || DEFAULT_ROW_COLOR;
           const projectHref = `/work/${project.slug}`;
 
           // Calculate alternating scroll translation for text rows
@@ -130,7 +129,7 @@ export function WorkSection({
               style={{
                 color: isCurrentHovered ? rowColor.text : '#1a1a18',
               }}
-              onMouseEnter={() => handleMouseEnterRow(project, index)}
+              onMouseEnter={() => handleMouseEnterRow(project)}
             >
               {/* ── Visibly Expanding Fill Color Layer ── */}
               <div
@@ -176,7 +175,7 @@ export function WorkSection({
         })}
       </div>
 
-      {/* ── Floating Preview Images (Clipped into target row with vertical split slide) ── */}
+      {/* ── Floating Preview Images ── */}
       <div
         className="pointer-events-none absolute top-0 left-0 z-30 transition-opacity duration-300 ease-out"
         style={{
@@ -184,19 +183,20 @@ export function WorkSection({
           opacity: isMoving && (activeProjectId || prevProjectId) ? 1 : 0,
         }}
       >
-        <div className="relative w-[300px] md:w-[400px] h-[180px] md:h-[220px] rounded-sm overflow-hidden shadow-2xl border border-white/10 bg-[#1a1a18]">
-          {projects.map((project, index) => {
+        <div className="relative w-[300px] md:w-[400px] h-[180px] md:h-[220px] rounded-sm overflow-hidden shadow-2xl bg-[#1a1a18]">
+          {projects.map((project) => {
             const isCurrent = activeProjectId === project.id;
             const isPrev = prevProjectId === project.id;
 
             if (!isCurrent && !isPrev) return null;
 
-            const rowColor = ROW_COLORS[index % ROW_COLORS.length];
+            const rowColor = ROW_COLORS[project.slug] || DEFAULT_ROW_COLOR;
+            const isScraper = project.slug === 'python-web-scraper';
 
             return (
               <div
                 key={project.id}
-                className="absolute inset-0 p-2 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]"
+                className="absolute inset-0 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]"
                 style={{
                   opacity: isCurrent ? 1 : 0.4,
                   transform: isCurrent
@@ -205,13 +205,13 @@ export function WorkSection({
                   zIndex: isCurrent ? 2 : 1,
                 }}
               >
-                <div className="w-full h-full bg-[#252623] rounded-xs flex flex-col items-center justify-center text-center relative overflow-hidden">
+                <div className="w-full h-full bg-[#1a1a18] flex flex-col items-center justify-center text-center relative overflow-hidden">
                   {project.thumbnail ? (
                     <div className="absolute inset-0 w-full h-full">
                       <img
                         src={project.thumbnail}
                         alt={project.title}
-                        className="w-full h-full object-cover"
+                        className={`w-full h-full ${isScraper ? 'object-contain p-2 bg-[#0d1117]' : 'object-cover'}`}
                       />
                     </div>
                   ) : (

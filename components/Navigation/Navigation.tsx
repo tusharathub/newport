@@ -95,7 +95,7 @@ export function Navigation() {
           href="/"
           className="font-mono text-sm font-semibold tracking-[0.1em] uppercase text-[#e2e1da] hover:text-white transition-colors"
         >
-          Tushar
+          .
         </Link>
 
         {/* Center — Links (desktop) */}
@@ -122,9 +122,9 @@ export function Navigation() {
           className="hidden md:inline-flex items-center gap-1 font-mono text-[0.6875rem] font-medium tracking-[0.1em] uppercase text-[#e2e1da] hover:text-white transition-colors group"
           onClick={() => handleLinkClick('/#contact')}
         >
-          Contact{' '}
+          {' '}
           <span className="inline-block transition-transform duration-150 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-            ↗
+            
           </span>
         </Link>
 

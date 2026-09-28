@@ -67,10 +67,10 @@ export default async function ProjectPage({ params }: PageProps) {
         <h2 className="font-mono text-xs font-semibold text-[#8a8a84] tracking-[0.15em] uppercase">
           HOW IT WORKS
         </h2>
-
+{/* 
         {cs?.howItWorks?.processSteps && (
           <CaseStudyDiagram steps={cs.howItWorks.processSteps} />
-        )}
+        )} */}
 
         {cs?.howItWorks?.explanation && (
           <p className="text-base md:text-lg text-[#e2e1da] leading-relaxed max-w-3xl mt-2">
@@ -92,7 +92,7 @@ export default async function ProjectPage({ params }: PageProps) {
       )}
 
       {/* 4. WHAT I LEARNED */}
-      {cs?.learnings && cs.learnings.length > 0 && (
+      {/* {cs?.learnings && cs.learnings.length > 0 && (
         <section className="flex flex-col gap-4 py-6 border-b border-[#e2e1da]/10">
           <h2 className="font-mono text-xs font-semibold text-[#8a8a84] tracking-[0.15em] uppercase">
             WHAT I LEARNED
@@ -109,7 +109,7 @@ export default async function ProjectPage({ params }: PageProps) {
             ))}
           </ul>
         </section>
-      )}
+      )} */}
 
       {/* 5. PROJECT NAVIGATION */}
       <CaseStudyNavigation

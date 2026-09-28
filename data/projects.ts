@@ -99,7 +99,7 @@ export const projects: Project[] = [
     year: '2024',
     category: 'Full-Stack',
     role: 'Full-Stack Developer',
-    technologies: ['Next.js', 'React', 'MongoDB', 'Mongoose', 'Clerk', 'Framer Motion', 'Tailwind CSS'],
+    technologies: ['Next.js', 'React', 'MongoDB', 'Mongoose', 'Clerk', 'Tailwind CSS'],
     liveUrl: 'https://routine-melt.vercel.app/',
     githubUrl: 'https://github.com/tusharathub/RoutineMelt',
     thumbnail: '/routinemelt.png',
@@ -129,42 +129,42 @@ export const projects: Project[] = [
       ],
     },
   },
-  {
-    id: '04',
-    slug: 'notablecv',
-    title: 'NotableCV',
-    description:
-      'An AI-powered career platform featuring resume and job-description analysis, personalized cover-letter generation, and integrated payments.',
-    year: '2024',
-    category: 'Full-Stack',
-    role: 'Full-Stack Builder',
-    technologies: ['Next.js', 'TypeScript', 'AI', 'Stripe', 'Tailwind'],
-    liveUrl: 'https://notable-cv.vercel.app/',
-    githubUrl: 'https://github.com/tusharathub/Notable-CV',
-    featured: false,
-    caseStudy: true,
-    layoutVariant: 'full',
-    aspectRatio: '21/9',
-    caseStudyData: {
-      overview:
-        'An end-to-end web platform designed to analyze resumes against specific job listings and generate tailored application artifacts.',
-      howItWorks: {
-        processSteps: [
-          'RESUME & JD PARSE',
-          'MATCH & GAP ANALYSIS',
-          'TAILORED GENERATION',
-          'STRIPE CHECKOUT',
-        ],
-        explanation:
-          'Extracts clean text from uploaded resumes and job descriptions, evaluates match gaps via structured LLM prompt prompts, streams customized cover letter outputs, and manages credit balances through integrated Stripe checkout.',
-      },
-      learnings: [
-        'Integrating payment flows early forces clarity around core product value and user feature tiers.',
-        'Streaming AI outputs drastically improves perceived user latency on multi-paragraph generation tasks.',
-        'Strict server-side document parsing pipelines are necessary to handle varied formatting in user PDF and Word uploads.',
-      ],
-    },
-  },
+  // {
+  //   id: '04',
+  //   slug: 'notablecv',
+  //   title: 'NotableCV',
+  //   description:
+  //     'An AI-powered career platform featuring resume and job-description analysis, personalized cover-letter generation, and integrated payments.',
+  //   year: '2024',
+  //   category: 'Full-Stack',
+  //   role: 'Full-Stack Builder',
+  //   technologies: ['Next.js', 'TypeScript', 'AI', 'Stripe', 'Tailwind'],
+  //   liveUrl: 'https://notable-cv.vercel.app/',
+  //   githubUrl: 'https://github.com/tusharathub/Notable-CV',
+  //   featured: false,
+  //   caseStudy: true,
+  //   layoutVariant: 'full',
+  //   aspectRatio: '21/9',
+  //   caseStudyData: {
+  //     overview:
+  //       'An end-to-end web platform designed to analyze resumes against specific job listings and generate tailored application artifacts.',
+  //     howItWorks: {
+  //       processSteps: [
+  //         'RESUME & JD PARSE',
+  //         'MATCH & GAP ANALYSIS',
+  //         'TAILORED GENERATION',
+  //         'STRIPE CHECKOUT',
+  //       ],
+  //       explanation:
+  //         'Extracts clean text from uploaded resumes and job descriptions, evaluates match gaps via structured LLM prompt prompts, streams customized cover letter outputs, and manages credit balances through integrated Stripe checkout.',
+  //     },
+  //     learnings: [
+  //       'Integrating payment flows early forces clarity around core product value and user feature tiers.',
+  //       'Streaming AI outputs drastically improves perceived user latency on multi-paragraph generation tasks.',
+  //       'Strict server-side document parsing pipelines are necessary to handle varied formatting in user PDF and Word uploads.',
+  //     ],
+  //   },
+  // },
   {
     id: '05',
     slug: 'python-web-scraper',
