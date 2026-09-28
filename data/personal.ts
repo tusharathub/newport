@@ -1,8 +1,8 @@
 export interface Capability {
   id: string;
   category: string;
-  skills: string[];
   description: string;
+  skills: string[];
 }
 
 export interface PersonalConfig {
@@ -40,7 +40,7 @@ export const personalData: PersonalConfig = {
     "I don't always start with a problem that needs solving. Sometimes I just come across something interesting and want to know how it works. So I build it.",
     "My approach is simple: make something work first, then make it better. I like getting ideas out of my head and into something real. Once it's working, I can obsess over the details, architecture, UX, and everything that makes it better.",
     "I'm ambitious, curious, and probably more attached to a project than I should be once I've started it. If I decide I'm going to build something, I tend to stick with it until it's finished.",
-    "Right now, I'm focused on becoming a stronger AI engineer while continuing to build across the full stack.",
+    // "Right now, I'm focused on becoming a stronger AI engineer while continuing to build across the full stack.",
   ],
   email: 'tushar.chd17@gmail.com',
   github: 'https://github.com/tusharathub',
@@ -61,31 +61,32 @@ export const personalData: PersonalConfig = {
   capabilities: [
     {
       id: '01',
-      category: 'AI ENGINEERING',
-      skills: ['Python', 'RAG', 'Vector Search', 'Embeddings', 'LLM APIs', 'Prompt Engineering'],
-      description:
-        'Building AI-powered applications and experimenting with LLMs, RAG, retrieval, embeddings, and AI-driven product experiences.',
+      category: 'FULL-STACK DEVELOPMENT',
+      description: 'Building complete web applications from frontend to backend.',
+      skills: [
+        'Next.js',
+        'React',
+        'TypeScript',
+        'NestJS',
+        'Node.js',
+        'MongoDB',
+        'Redis',
+        'Tailwind CSS',
+        'REST APIs',
+        'Socket.io',
+      ],
     },
     {
       id: '02',
-      category: 'FULL-STACK DEVELOPMENT',
-      skills: ['Next.js', 'React', 'TypeScript', 'Node.js', 'Tailwind CSS', 'REST APIs'],
-      description:
-        'Building complete web applications from frontend interfaces to backend systems, APIs, databases, authentication, and deployment.',
-    },
-    {
-      id: '03',
-      category: 'MOBILE DEVELOPMENT',
-      skills: ['Android', 'React Native', 'SQLite', 'Mobile UX', 'Local-First'],
-      description:
-        'Building Android/mobile applications with a focus on practical functionality and clean user experiences.',
-    },
-    {
-      id: '04',
-      category: 'AUTOMATION & DATA',
-      skills: ['Python', 'Web Scraping', 'Data Extraction', 'Schema Validation', 'Data Pipelines'],
-      description:
-        'Building scrapers, automation tools, data pipelines, and systems that turn messy information into something useful.',
+      category: 'APP DEVELOPMENT',
+      description: 'Building practical mobile applications with clean and functional UX.',
+      skills: [
+        'Android',
+        'React Native',
+        'TypeScript',
+        'Firebase',
+        'Socket.io',
+      ],
     },
   ],
   workingPhilosophy: {

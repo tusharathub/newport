@@ -44,41 +44,27 @@ export function AboutSection() {
         </div>
       </div>
 
-      {/* Capabilities Matrix */}
-      <div className="flex flex-col gap-8 pt-12 border-t border-[#343531]">
-        <div className="flex justify-between items-center">
+      {/* Capabilities Section */}
+      <div className="flex flex-col gap-10 pt-16 border-t border-[#343531]">
+        <div>
           <span className="font-mono text-xs font-semibold text-[#a1a29b] tracking-widest uppercase">
-            CAPABILITIES & TECHNICAL SPECTRUM
+            CAPABILITIES
           </span>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
           {personalData.capabilities.map((cap) => (
-            <div
-              key={cap.id}
-              className="p-6 bg-[#20211f] border border-[#343531] rounded-sm flex flex-col gap-4"
-            >
-              <div className="flex items-center justify-between font-mono text-xs">
-                <span className="text-[#777871]">{cap.id}</span>
-                <span className="font-unbounded font-bold text-[#e7e6df] tracking-wider uppercase text-xs">
-                  {cap.category}
-                </span>
-              </div>
-
-              <p className="text-xs md:text-sm text-[#a1a29b] leading-relaxed">
+            <div key={cap.id} className="flex flex-col gap-3">
+              <span className="font-mono text-sm text-[#777871]">{cap.id}</span>
+              <h3 className="font-unbounded text-xl md:text-2xl font-bold text-[#e7e6df] tracking-tight uppercase">
+                {cap.category}
+              </h3>
+              <p className="font-body text-sm md:text-base text-[#a1a29b] leading-relaxed max-w-md">
                 {cap.description}
               </p>
-
-              <div className="flex flex-wrap gap-1.5 pt-3 border-t border-[#343531]">
-                {cap.skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className="font-mono text-[10px] text-[#a1a29b] px-2 py-0.5 bg-[#252623] border border-[#343531] rounded-sm"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
+              <p className="font-mono text-xs text-[#777871] pt-2">
+                {cap.skills.join(' · ')}
+              </p>
             </div>
           ))}
         </div>
