@@ -10,7 +10,6 @@ import {
 import { Navigation } from '@/components/Navigation/Navigation';
 import { GrainOverlay } from '@/components/GrainOverlay/GrainOverlay';
 import { CustomCursorProvider } from '@/components/CustomCursor/CustomCursor';
-import { Footer } from '@/components/Footer/Footer';
 import { personalData } from '@/data/personal';
 import './globals.css';
 import { SmoothScroll } from '@/components/SmoothScroll/SmoothScroll';
