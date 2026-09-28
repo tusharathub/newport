@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { personalData } from '@/data/personal';
 import DitherVeil from '@/components/DitherVeil/DitherVeil';
+import FolderFloat from '@/components/FolderFloat/FolderFloat';
 
 export function ContactSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -37,75 +38,97 @@ export function ContactSection() {
       {/* Top / Center Main Content */}
       <div className="px-[clamp(1.5rem,6vw,5rem)] pt-8 pb-4 flex-1 flex flex-col justify-center">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center max-w-7xl w-full">
-          {/* Left Column - Contact Text & Links */}
-          <div className="lg:col-span-7 flex flex-col gap-6">
-            {/* Availability Badge */}
-            {personalData.availability.enabled && (
-              <div
-                className={`inline-flex items-center gap-2.5 font-mono text-[11px] font-bold px-4 py-1.5 rounded-sm tracking-[0.15em] uppercase w-fit transition-all duration-700 ease-out ${
-                  isVisible
-                    ? 'opacity-100 translate-y-0'
-                    : 'opacity-0 translate-y-4'
-                }`}
-                style={{
-                  color: '#1a1a18',
-                  border: '1px solid rgba(26,26,24,0.3)',
-                }}
-              >
-                <span
-                  className="w-2 h-2 rounded-full animate-pulse"
-                  style={{ backgroundColor: '#1a1a18' }}
-                />
-                <span>{personalData.availability.label}</span>
-              </div>
-            )}
+          {/* Left Column - Contact Text & Links + FolderFloat */}
+          <div className="lg:col-span-7 flex flex-col gap-5 justify-between">
+            <div className="flex flex-col gap-4">
+              {/* Availability Badge */}
+              {personalData.availability.enabled && (
+                <div
+                  className={`inline-flex items-center gap-2.5 font-mono text-[11px] font-bold px-4 py-1.5 rounded-sm tracking-[0.15em] uppercase w-fit transition-all duration-700 ease-out ${
+                    isVisible
+                      ? 'opacity-100 translate-y-0'
+                      : 'opacity-0 translate-y-4'
+                  }`}
+                  style={{
+                    color: '#1a1a18',
+                    border: '1px solid rgba(26,26,24,0.3)',
+                  }}
+                >
+                  <span
+                    className="w-2 h-2 rounded-full animate-pulse"
+                    style={{ backgroundColor: '#1a1a18' }}
+                  />
+                  <span>{personalData.availability.label}</span>
+                </div>
+              )}
 
-            {/* Dramatic Heading */}
-            <div className="overflow-hidden">
-              <h2
-                className={`font-big-shoulders font-black uppercase leading-[0.85] tracking-[-0.03em] transition-all duration-1000 ease-out ${
+              {/* Dramatic Heading */}
+              <div className="overflow-hidden">
+                <h2
+                  className={`font-big-shoulders font-black uppercase leading-[0.85] tracking-[-0.03em] transition-all duration-1000 ease-out ${
+                    isVisible
+                      ? 'opacity-100 translate-y-0'
+                      : 'opacity-0 translate-y-[100%]'
+                  }`}
+                  style={{
+                    fontSize: 'clamp(2.75rem, 5.5vw, 5.5rem)',
+                    color: '#1a1a18',
+                  }}
+                >
+                  LET&apos;S BUILD
+                  <br />
+                  SOMETHING WORTH
+                  <br />
+                  SHIPPING.
+                </h2>
+              </div>
+
+              {/* Description */}
+              <p
+                className={`font-body text-sm md:text-base lg:text-lg max-w-xl leading-relaxed transition-all duration-700 delay-200 ease-out ${
                   isVisible
                     ? 'opacity-100 translate-y-0'
-                    : 'opacity-0 translate-y-[100%]'
+                    : 'opacity-0 translate-y-6'
                 }`}
-                style={{
-                  fontSize: 'clamp(3rem, 7vw, 6.5rem)',
-                  color: '#1a1a18',
-                }}
+                style={{ color: 'rgba(26,26,24,0.8)' }}
               >
-                LET&apos;S BUILD
-                <br />
-                SOMETHING WORTH
-                <br />
-                SHIPPING.
-              </h2>
+                Open to considered collaborations and conversations concerning
+                matters worth bringing into being.
+              </p>
             </div>
 
-            {/* Description */}
-            <p
-              className={`font-body text-base md:text-lg lg:text-xl max-w-2xl leading-relaxed transition-all duration-700 delay-200 ease-out ${
-                isVisible
-                  ? 'opacity-100 translate-y-0'
-                  : 'opacity-0 translate-y-6'
-              }`}
-              style={{ color: 'rgba(26,26,24,0.8)' }}
-            >
-              Open to considered collaborations and conversations concerning
-              matters worth bringing into being.
-            </p>
-
-            {/* CTA + Links */}
+            {/* Bottom Row - Folder Float & Secondary Links */}
             <div
-              className={`flex flex-wrap items-center gap-6 pt-2 transition-all duration-700 delay-300 ease-out ${
+              className={`flex flex-wrap items-end justify-between gap-6 pt-12 transition-all duration-700 delay-300 ease-out ${
                 isVisible
                   ? 'opacity-100 translate-y-0'
                   : 'opacity-0 translate-y-6'
               }`}
             >
+              {/* FolderFloat component in bottom left */}
+              <FolderFloat
+                items={[
+                  { label: 'GITHUB', value: personalData.github },
+                  { label: 'LINKEDIN', value: personalData.linkedin },
+                  { label: 'RESUME', value: personalData.resume },
+                ]}
+                label="LINKS & SOCIALS"
+                sublabel="3 links"
+                folderColor="#1a1a18"
+                frontColor="#252623"
+                paperColor="#e7e6df"
+                itemColor="#e7e6df"
+                itemTextColor="#1a1a18"
+                labelColor="#e7e6df"
+                width={180}
+                height={130}
+                lift={16}
+                spread={140}
+              />
 
               {/* Secondary Links */}
               <div
-                className="flex items-center gap-6 font-mono text-sm font-bold tracking-[0.12em] uppercase"
+                className="flex items-center gap-6 font-mono text-sm font-bold tracking-[0.12em] uppercase pb-4"
                 style={{ color: 'rgba(26,26,24,0.75)' }}
               >
                 {personalData.github && (
