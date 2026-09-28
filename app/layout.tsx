@@ -55,6 +55,9 @@ const syne = Syne({
 export const metadata: Metadata = {
   title: `${personalData.name} — ${personalData.title}`,
   description: personalData.shortBio,
+  icons: {
+    icon: '/icon.svg',
+  },
   openGraph: {
     title: `${personalData.name} — ${personalData.title}`,
     description: personalData.shortBio,
