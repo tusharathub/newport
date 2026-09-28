@@ -5,6 +5,11 @@ export interface ArchitectureNode {
 
 export interface CaseStudyData {
   overview?: string;
+  howItWorks?: {
+    processSteps?: string[];
+    explanation?: string;
+  };
+  learnings?: string[];
   problem?: string;
   approach?: string;
   build?: string;
@@ -17,7 +22,6 @@ export interface CaseStudyData {
   challenges?: string[];
   solution?: string;
   result?: string;
-  learnings?: string[];
   nextSteps?: string;
 }
 

@@ -58,85 +58,60 @@ export default async function ProjectPage({ params }: PageProps) {
   const cs = project.caseStudyData;
 
   return (
-    <main className="w-full px-[clamp(1.25rem,5vw,4rem)] max-w-[1440px] mx-auto min-h-screen">
-      {/* Hero Header */}
+    <main className="w-full px-[clamp(1.25rem,5vw,4rem)] max-w-[1280px] mx-auto min-h-screen py-8 flex flex-col gap-12">
+      {/* 1. PROJECT HERO (TITLE, CATEGORY, DESCRIPTION, GITHUB/LIVE, IMAGE) */}
       <CaseStudyHero project={project} />
 
-      {/* Main Grid: Sticky Sidebar + Case Study Content */}
-      <div className="flex flex-col lg:flex-row gap-12 py-8">
-        {/* Sidebar Metadata */}
-        <CaseStudyMeta project={project} />
+      {/* 2. HOW IT WORKS */}
+      <section className="flex flex-col gap-4 py-6 border-b border-[#e2e1da]/10">
+        <h2 className="font-mono text-xs font-semibold text-[#8a8a84] tracking-[0.15em] uppercase">
+          HOW IT WORKS
+        </h2>
 
-        {/* Content Column */}
-        <div className="flex-1 flex flex-col gap-4">
-          {cs?.overview && (
-            <CaseStudySection number="00" title="OVERVIEW" text={cs.overview} />
-          )}
+        {cs?.howItWorks?.processSteps && (
+          <CaseStudyDiagram steps={cs.howItWorks.processSteps} />
+        )}
 
-          {cs?.problem && (
-            <CaseStudySection number="01" title="THE PROBLEM" text={cs.problem} />
-          )}
+        {cs?.howItWorks?.explanation && (
+          <p className="text-base md:text-lg text-[#e2e1da] leading-relaxed max-w-3xl mt-2">
+            {cs.howItWorks.explanation}
+          </p>
+        )}
+      </section>
 
-          {cs?.approach && (
-            <CaseStudySection
-              number="02"
-              title="THE APPROACH"
-              text={cs.approach}
-            />
-          )}
+      {/* 3. TECH STACK */}
+      {project.technologies && project.technologies.length > 0 && (
+        <section className="flex flex-col gap-3 py-6 border-b border-[#e2e1da]/10">
+          <h2 className="font-mono text-xs font-semibold text-[#8a8a84] tracking-[0.15em] uppercase">
+            TECH STACK
+          </h2>
+          <div className="font-mono text-base md:text-lg text-[#e2e1da] tracking-wide">
+            {project.technologies.join('  ·  ')}
+          </div>
+        </section>
+      )}
 
-          {cs?.architectureNodes && cs.architectureNodes.length > 0 && (
-            <CaseStudyDiagram nodes={cs.architectureNodes} />
-          )}
+      {/* 4. WHAT I LEARNED */}
+      {cs?.learnings && cs.learnings.length > 0 && (
+        <section className="flex flex-col gap-4 py-6 border-b border-[#e2e1da]/10">
+          <h2 className="font-mono text-xs font-semibold text-[#8a8a84] tracking-[0.15em] uppercase">
+            WHAT I LEARNED
+          </h2>
+          <ul className="flex flex-col gap-3 max-w-3xl">
+            {cs.learnings.map((point, idx) => (
+              <li
+                key={idx}
+                className="flex items-start gap-3 text-base md:text-lg text-[#8a8a84] leading-relaxed"
+              >
+                <span className="text-[#e2e1da] select-none">•</span>
+                <span>{point}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
-          {cs?.build && (
-            <CaseStudySection
-              number="03"
-              title="THE BUILD"
-              text={cs.build}
-              codeSnippet={cs.codeSnippet}
-            />
-          )}
-
-          {cs?.challenges && cs.challenges.length > 0 && (
-            <CaseStudySection
-              number="04"
-              title="CHALLENGES"
-              bullets={cs.challenges}
-            />
-          )}
-
-          {cs?.solution && (
-            <CaseStudySection
-              number="05"
-              title="THE SOLUTION"
-              text={cs.solution}
-            />
-          )}
-
-          {cs?.result && (
-            <CaseStudySection number="06" title="THE RESULT" text={cs.result} />
-          )}
-
-          {cs?.learnings && cs.learnings.length > 0 && (
-            <CaseStudySection
-              number="07"
-              title="WHAT I LEARNED"
-              bullets={cs.learnings}
-            />
-          )}
-
-          {cs?.nextSteps && (
-            <CaseStudySection
-              number="08"
-              title="NEXT STEPS"
-              text={cs.nextSteps}
-            />
-          )}
-        </div>
-      </div>
-
-      {/* Footer Prev/Next Navigation */}
+      {/* 5. PROJECT NAVIGATION */}
       <CaseStudyNavigation
         previousProject={previousProject}
         nextProject={nextProject}

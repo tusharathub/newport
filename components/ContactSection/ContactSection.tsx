@@ -31,7 +31,7 @@ export function ContactSection() {
     <section
       ref={sectionRef}
       id="contact"
-      className="relative w-full overflow-hidden flex flex-col justify-center py-16 md:py-20"
+      className="relative w-full overflow-hidden flex flex-col justify-center py-16 md:py-5"
       style={{ backgroundColor: '#ef3e1d' }}
       aria-label="Contact"
     >
@@ -127,7 +127,7 @@ export function ContactSection() {
               />
 
               {/* Secondary Links */}
-              <div
+              {/* <div
                 className="flex items-center gap-6 font-mono text-sm font-bold tracking-[0.12em] uppercase pb-4"
                 style={{ color: 'rgba(26,26,24,0.75)' }}
               >
@@ -161,7 +161,7 @@ export function ContactSection() {
                     RESUME
                   </a>
                 )}
-              </div>
+              </div> */}
             </div>
           </div>
 
