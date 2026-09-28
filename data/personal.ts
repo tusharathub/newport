@@ -45,7 +45,7 @@ export const personalData: PersonalConfig = {
   email: 'tushar.chd17@gmail.com',
   github: 'https://github.com/tusharathub',
   linkedin: 'https://www.linkedin.com/in/tushar-nailwal/',
-  resume: 'https://plum-ethyl-86.tiiny.site/',
+  resume: 'https://black-sherri-56.tiiny.site/',
   siteUrl: 'https://tusharnailwal.dev',
   availability: {
     enabled: true,
