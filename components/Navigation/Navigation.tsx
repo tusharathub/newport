@@ -14,12 +14,28 @@ const NAV_LINKS = [
 export function Navigation() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
+  const [visible, setVisible] = useState(true);
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  /* ── Scroll detection ── */
+  /* ── Scroll direction detection ── */
   useEffect(() => {
+    let lastScrollY = window.scrollY;
+
     const onScroll = () => {
-      setScrolled(window.scrollY > 60);
+      const currentScrollY = window.scrollY;
+      setScrolled(currentScrollY > 60);
+
+      if (currentScrollY <= 60) {
+        setVisible(true);
+      } else if (currentScrollY > lastScrollY + 5) {
+        // Scrolling down -> hide navbar
+        setVisible(false);
+      } else if (currentScrollY < lastScrollY - 5) {
+        // Scrolling up -> show navbar
+        setVisible(true);
+      }
+
+      lastScrollY = currentScrollY;
     };
 
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -64,7 +80,9 @@ export function Navigation() {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-[100] flex items-center justify-between px-[clamp(1.25rem,5vw,4rem)] py-6 border-b transition-all duration-300 ease-out backdrop-blur-md ${
+        className={`fixed top-0 left-0 right-0 z-[100] flex items-center justify-between px-[clamp(1.25rem,5vw,4rem)] py-6 border-b transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] backdrop-blur-md ${
+          visible || mobileOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'
+        } ${
           scrolled
             ? 'bg-[#080909]/85 border-[#e2e1da]/10 shadow-lg'
             : 'bg-[#080909]/40 border-transparent'

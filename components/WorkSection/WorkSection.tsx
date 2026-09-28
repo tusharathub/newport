@@ -94,7 +94,7 @@ export function WorkSection({
       ref={sectionRef}
       id="work"
       className="relative w-full overflow-hidden select-none"
-      style={{ backgroundColor: '#ece8e1' }}
+      style={{ backgroundColor: '#ffffff' }}
       onMouseMove={handleSectionMouseMove}
       onMouseLeave={handleMouseLeaveSection}
       aria-label={title}
