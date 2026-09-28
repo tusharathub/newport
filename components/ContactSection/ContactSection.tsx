@@ -29,7 +29,7 @@ export function ContactSection() {
     <section
       ref={sectionRef}
       id="contact"
-      className="relative w-full min-h-[calc(100vh-56px)] overflow-hidden flex flex-col justify-between"
+      className="relative w-full overflow-hidden flex flex-col justify-center py-16 md:py-20"
       style={{ backgroundColor: '#ef3e1d' }}
       aria-label="Contact"
     >

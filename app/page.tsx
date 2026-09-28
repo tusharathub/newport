@@ -14,17 +14,17 @@ export default function Home() {
 
   return (
     <>
-      {/* ── Hero ── */}
-      <HeroSection />
+      {/* ── Main content (scrolls over sticky contact footer) ── */}
+      <div className="relative z-10 bg-[#080909]">
+        <HeroSection />
+        <WorkSection projects={featuredProjects} />
+        <AboutSection />
+      </div>
 
-      {/* ── Selected Work ── */}
-      <WorkSection projects={featuredProjects} />
-
-      {/* ── About ── */}
-      <AboutSection />
-
-      {/* ── Contact ── */}
-      <ContactSection />
+      {/* ── Sticky Contact Footer (reveals smoothly beneath About section) ── */}
+      <div className="sticky bottom-0 z-0 w-full">
+        <ContactSection />
+      </div>
     </>
   );
 }
