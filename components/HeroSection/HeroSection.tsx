@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import RippleDistortion from '@/components/RippleDistortion/RippleDistortion';
 
 export function HeroSection() {
   const heroRef = useRef<HTMLElement>(null);
@@ -130,9 +131,21 @@ export function HeroSection() {
         <div className="w-px h-8 bg-[#e2e1da]/20" />
       </div>
 
+      {/* Background Ripple Distortion */}
+      <div className="absolute inset-0 z-0 opacity-40 pointer-events-auto">
+        <RippleDistortion
+          brushSize={150}
+          strength={0.2}
+          swirl={1}
+          rings={4}
+          grayscale
+          trigger="both"
+        />
+      </div>
+
       {/* Abstract orbital geometric element */}
       <div
-        className="absolute top-1/2 right-[10%] -translate-y-1/2 w-[320px] h-[320px] pointer-events-none opacity-20 hidden md:block"
+        className="absolute top-1/2 right-[10%] -translate-y-1/2 w-[320px] h-[320px] pointer-events-none opacity-20 hidden md:block z-10"
         ref={abstractRef}
         aria-hidden="true"
       >
