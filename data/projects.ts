@@ -4,7 +4,7 @@ export const projects: Project[] = [
   {
     id: '01',
     slug: 'rag-application',
-    title: 'TALK TO YOUR DATA',
+    title: 'RAG - Talk To Your Data',
     description:
       'A full-stack RAG application that lets users upload their data and have grounded conversations with it.',
     year: '2024',
@@ -86,6 +86,43 @@ export const projects: Project[] = [
   },
   {
     id: '03',
+    slug: 'routine-melt',
+    title: 'RoutineMelt',
+    description:
+      'A brutalist daily habit and routine tracker designed with a sand & red editorial aesthetic.',
+    year: '2024',
+    category: 'Full-Stack',
+    role: 'Full-Stack Developer',
+    technologies: ['Next.js', 'React', 'MongoDB', 'Mongoose', 'Clerk', 'Framer Motion', 'Tailwind CSS'],
+    liveUrl: 'https://routine-melt.vercel.app/',
+    githubUrl: 'https://github.com/tusharathub/RoutineMelt',
+    featured: true,
+    caseStudy: true,
+    layoutVariant: 'full',
+    aspectRatio: '16/9',
+    caseStudyData: {
+      overview:
+        'A high-impact brutalist habit & routine tracker that helps creators, developers, and writers log daily accomplishments and visualize consistency through an annual streak calendar.',
+      howItWorks: {
+        processSteps: [
+          'CLERK AUTH',
+          'HABIT DEFINE',
+          'DAILY LOG',
+          'MONGO DB WRITE',
+          'STREAK GRID ENGINE',
+        ],
+        explanation:
+          'Users log in via Clerk authentication, create routines, and record daily completions. Data is stored in MongoDB via Mongoose, dynamically rendering responsive annual streak grids and statistics.',
+      },
+      learnings: [
+        'Brutalist editorial design systems require strict typographic constraints and high-contrast color tokens.',
+        'Building persistent annual streak grids requires efficient MongoDB aggregation pipelines and date-range queries.',
+        'Clerk authentication simplifies full-stack user session state across Next.js App Router client and server boundaries.',
+      ],
+    },
+  },
+  {
+    id: '04',
     slug: 'notablecv',
     title: 'NotableCV',
     description:
@@ -94,7 +131,9 @@ export const projects: Project[] = [
     category: 'Full-Stack',
     role: 'Full-Stack Builder',
     technologies: ['Next.js', 'TypeScript', 'AI', 'Stripe', 'Tailwind'],
-    featured: true,
+    liveUrl: 'https://notable-cv.vercel.app/',
+    githubUrl: 'https://github.com/tusharathub/Notable-CV',
+    featured: false,
     caseStudy: true,
     layoutVariant: 'full',
     aspectRatio: '21/9',
@@ -119,7 +158,7 @@ export const projects: Project[] = [
     },
   },
   {
-    id: '04',
+    id: '05',
     slug: 'python-web-scraper',
     title: 'Python Web Scraper',
     description:
@@ -128,7 +167,8 @@ export const projects: Project[] = [
     category: 'Automation',
     role: 'Automation Developer',
     technologies: ['Python', 'Automation', 'Parsing', 'JSON/CSV'],
-    featured: true,
+    githubUrl: 'https://github.com/tusharathub/web-scraper',
+    featured: false,
     caseStudy: true,
     layoutVariant: 'offset',
     aspectRatio: '16/10',

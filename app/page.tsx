@@ -8,8 +8,9 @@ import { Project } from '@/types/project';
 export default function Home() {
   const featuredProjects = [
     getProjectBySlug('rag-application'),
+    getProjectBySlug('water-tracking-app'),
+    getProjectBySlug('routine-melt'),
     getProjectBySlug('python-web-scraper'),
-    getProjectBySlug('notablecv'),
   ].filter(Boolean) as Project[];
 
   return (
@@ -17,7 +18,7 @@ export default function Home() {
       {/* ── Main content (scrolls over sticky contact footer) ── */}
       <div className="relative z-10 bg-[#080909]">
         <HeroSection />
-        <WorkSection projects={featuredProjects} />
+        <WorkSection projects={featuredProjects} showViewAll={false} />
         <AboutSection />
       </div>
 

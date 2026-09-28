@@ -157,7 +157,7 @@ export function WorkSection({
 
                 {/* Scroll-driven moving text row */}
                 <div
-                  className="flex items-baseline gap-12 whitespace-nowrap transition-transform duration-100 ease-linear"
+                  className="flex items-baseline gap-12 whitespace-nowrap transition-transform duration-100 ease-linear ml-6 md:ml-16"
                   style={{
                     transform: `translate3d(${textX}px, 0, 0)`,
                   }}
