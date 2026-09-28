@@ -14,6 +14,7 @@ export function ProjectMedia({ project, priority = false }: ProjectMediaProps) {
   const frameClasses = `relative w-full overflow-hidden flex items-center justify-center transition-all duration-500 ease-out rounded-sm group-hover:scale-[1.01] ${ratioClass}`;
 
   if (project.thumbnail) {
+    const isScraper = project.slug === 'python-web-scraper';
     return (
       <div
         className={frameClasses}
@@ -28,7 +29,9 @@ export function ProjectMedia({ project, priority = false }: ProjectMediaProps) {
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 60vw"
           priority={priority}
-          className="w-full h-full object-cover transition-transform duration-500 ease-out"
+          className={`w-full h-full transition-transform duration-500 ease-out ${
+            isScraper ? 'object-contain p-2 md:p-4' : 'object-cover'
+          }`}
         />
       </div>
     );

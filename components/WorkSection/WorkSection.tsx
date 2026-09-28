@@ -58,12 +58,12 @@ export function WorkSection({
 
     setMousePos({ x, y });
 
-    // Stillness detection: card hides when mouse stops moving for 180ms
+    // Stillness detection: card stays visible longer when mouse stops moving (800ms)
     setIsMoving(true);
     if (stillTimer.current) clearTimeout(stillTimer.current);
     stillTimer.current = setTimeout(() => {
       setIsMoving(false);
-    }, 180);
+    }, 800);
   };
 
   const handleMouseEnterRow = (project: Project, index: number) => {
@@ -205,22 +205,34 @@ export function WorkSection({
                   zIndex: isCurrent ? 2 : 1,
                 }}
               >
-                <div className="w-full h-full bg-[#252623] rounded-xs flex flex-col items-center justify-center p-4 text-center relative overflow-hidden">
-                  <div
-                    className="absolute inset-0 opacity-40 transition-colors duration-500"
-                    style={{ backgroundColor: rowColor.bg }}
-                  />
-                  <div className="relative z-10 flex flex-col items-center gap-2">
-                    <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#a1a29b] px-3 py-1 bg-black/60 rounded-full border border-white/10">
-                      {project.category}
-                    </span>
-                    <span className="font-big-shoulders text-3xl md:text-4xl font-black uppercase text-[#e7e6df] tracking-tight leading-none">
-                      {project.title}
-                    </span>
-                    <span className="font-mono text-[10px] text-[#a1a29b] font-medium pt-1">
-                      CLICK TO OPEN ↗
-                    </span>
-                  </div>
+                <div className="w-full h-full bg-[#252623] rounded-xs flex flex-col items-center justify-center text-center relative overflow-hidden">
+                  {project.thumbnail ? (
+                    <div className="absolute inset-0 w-full h-full">
+                      <img
+                        src={project.thumbnail}
+                        alt={project.title}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  ) : (
+                    <>
+                      <div
+                        className="absolute inset-0 opacity-40 transition-colors duration-500"
+                        style={{ backgroundColor: rowColor.bg }}
+                      />
+                      <div className="relative z-10 flex flex-col items-center gap-2 p-4">
+                        <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#a1a29b] px-3 py-1 bg-black/60 rounded-full border border-white/10">
+                          {project.category}
+                        </span>
+                        <span className="font-big-shoulders text-3xl md:text-4xl font-black uppercase text-[#e7e6df] tracking-tight leading-none">
+                          {project.title}
+                        </span>
+                        <span className="font-mono text-[10px] text-[#a1a29b] font-medium pt-1">
+                          CLICK TO OPEN ↗
+                        </span>
+                      </div>
+                    </>
+                  )}
                 </div>
               </div>
             );
